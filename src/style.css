@@ -1,0 +1,154 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?ew6mld');
+  src:  url('fonts/icomoon.eot?ew6mld#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?ew6mld') format('truetype'),
+    url('fonts/icomoon.woff?ew6mld') format('woff'),
+    url('fonts/icomoon.svg?ew6mld#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Rectangle:before {
+  content: "\e926";
+}
+.icon-top:before {
+  content: "\e924";
+}
+.icon-bottom:before {
+  content: "\e925";
+}
+.icon-sign:before {
+  content: "\e922";
+}
+.icon-user:before {
+  content: "\e923";
+}
+.icon-rightleft:before {
+  content: "\e900";
+}
+.icon-location:before {
+  content: "\e901";
+}
+.icon-apartment:before {
+  content: "\e902";
+}
+.icon-flagg:before {
+  content: "\e903";
+}
+.icon-car:before {
+  content: "\e904";
+}
+.icon-flight:before {
+  content: "\e905";
+}
+.icon-calendar:before {
+  content: "\e906";
+}
+.icon-plane:before {
+  content: "\e907";
+}
+.icon-cash:before {
+  content: "\e908";
+}
+.icon-trash:before {
+  content: "\e909";
+}
+.icon-data:before {
+  content: "\e90a";
+}
+.icon-Layer:before {
+  content: "\e90b";
+}
+.icon-pen:before {
+  content: "\e90c";
+}
+.icon-unioncard:before {
+  content: "\e90d";
+}
+.icon-pizza:before {
+  content: "\e90e";
+}
+.icon-televizor:before {
+  content: "\e90f";
+}
+.icon-komp:before {
+  content: "\e910";
+}
+.icon-klavish:before {
+  content: "\e911";
+}
+.icon-wifitop:before {
+  content: "\e912";
+}
+.icon-krug:before {
+  content: "\e913";
+  color: #4f4f4f;
+}
+.icon-bed:before {
+  content: "\e914";
+  color: #4f4f4f;
+}
+.icon-food:before {
+  content: "\e915";
+  color: #4f4f4f;
+}
+.icon-bath:before {
+  content: "\e916";
+  color: #4f4f4f;
+}
+.icon-loading:before {
+  content: "\e917";
+}
+.icon-icsafety:before {
+  content: "\e918";
+}
+.icon-cash2:before {
+  content: "\e919";
+}
+.icon-Union:before {
+  content: "\e91a";
+}
+.icon-wifiright:before {
+  content: "\e91b";
+}
+.icon-moon:before {
+  content: "\e91c";
+}
+.icon-sun:before {
+  content: "\e91d";
+}
+.icon-rightside:before {
+  content: "\e91e";
+}
+.icon-leftside:before {
+  content: "\e91f";
+}
+.icon-bell:before {
+  content: "\e920";
+}
+.icon-search:before {
+  content: "\e921";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-minus:before {
+  content: "\ea0b";
+}
