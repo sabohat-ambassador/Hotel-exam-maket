@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import {useTranslation} from 'react-i18next'
+import { stringTypeAnnotation } from "@babel/types"
 
 
 
@@ -83,6 +84,41 @@ height: 403px;
 width: 670px;
 object-fit: cover;
 `
+const ReserveSection = styled.div`
+background: #F4F4F6;
+border: 1px solid #F0EFEF;
+padding: 19px 25px;
+border-radius: 10px;
+margin-top: 30px;
+`
+
+const H4 = styled.h4`
+font-size: 28px;
+font-weight: 700;
+line-height: 41px;
+color: #23262F;
+margin-top: 0;
+margin-bottom: 18px;
+`
+const ReserveDetail = styled.p`
+color: #777E90;
+margin-top: 4px;
+`
+const Detailspan = styled.span`
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+color: #353945;
+`
+const DetailIcon = styled.i`
+font-size: 15px;
+margin-right: 14px;
+`
+const Reserve = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+`
 const Congratulation = ()=>{
     const {t} = useTranslation();
     return(
@@ -110,10 +146,27 @@ const Congratulation = ()=>{
                          <InformationSpan>1 Passenger</InformationSpan>
                      </Info>
                  </AboutPassanger>
-                 <div>
-                     <h4>Reserve details</h4>
-                    
-                 </div>
+                 <ReserveSection>
+                     <H4>Reserve details</H4>
+                    <div>
+                        <Reserve>
+                            <ReserveDetail><DetailIcon className='icon-Layer'></DetailIcon>Booking code</ReserveDetail>
+                            <Detailspan>FD_158456</Detailspan>
+                        </Reserve>
+                        <Reserve>
+                            <ReserveDetail><DetailIcon className='icon-data'></DetailIcon>Date</ReserveDetail>
+                            <Detailspan>30 Apr, 2021</Detailspan>
+                        </Reserve>
+                        <Reserve>
+                            <ReserveDetail><DetailIcon className='icon-trash'></DetailIcon>Total</ReserveDetail>
+                            <Detailspan>$833</Detailspan>
+                        </Reserve>
+                        <Reserve>
+                            <ReserveDetail><DetailIcon className='icon-cash'></DetailIcon>Payment method</ReserveDetail>
+                            <Detailspan>Creadit card</Detailspan>
+                        </Reserve>
+                    </div>
+                 </ReserveSection>
                  </div>
                  <DanielImg src="/assets/daniel.jpg" alt="" />
              </Bookedd>
