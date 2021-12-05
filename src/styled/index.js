@@ -330,8 +330,20 @@ export const DarkTheme = {
    confirmColor: '#23262F',
    yourtour: '#141416',
    inputNAme: '#141416',
-   cardSponsorColor: '#FFFFFF'
-
+   cardSponsorColor: '#FFFFFF',
+   sponsorBorder: '#E6E6E6',
+   american: 'block',
+   textsColor: '#353945',
+   cardNumbders: '#F4F5F6',
+   dateinputColor: '#F4F5F6',
+   borderInput: '#EAEAEA',
+   swisHotelscolor: '#141416',
+   checkedColors: ' #B1B5C3',
+   checkedColor: '#84878B',
+   farecolor: '#333333',
+   fareCheckedColor: '#353945',
+   totalBgColor: '#F4F5F6',
+   checkedOther: '#84878B'
 }
 
 export const LightTheme = {
@@ -430,6 +442,18 @@ export const LightTheme = {
    yourtour: '#E7ECF3',
    inputNAme: '#B1B5C3',
    cardSponsorColor: '#23262F',
-   sponsorBorder: ''
+   sponsorBorder: '#23262F',
+   american: 'none',
+   textsColor: '#E7ECF3',
+   cardNumbders: '#141416',
+   dateinputColor: '#141416',
+   borderInput: '#222529',
+   swisHotelscolor: '#FCFCFD',
+   checkColors1: ' #F4F5F6',
+   checkedColor: '#777E90',
+   farecolor: '#FFFFFF',
+   fareCheckedColor: '#E7ECF3',
+   totalBgColor: '#3B3E44',
+   checkedOther: '#E7ECF3'
 };
 

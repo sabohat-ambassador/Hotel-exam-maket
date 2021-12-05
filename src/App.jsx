@@ -8,6 +8,7 @@ import { Suspense, useState } from 'react';
 import { DarkTheme, LightTheme } from "./styled";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HotelCongratilations from "./pages/HotelCongratulations";
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
               <Route path='/hotels' element={<Hotels/>}/>
               <Route path='/hoteldetails' element={<HotelDetails/>}/>
               <Route path='/hotelpayment' element={<HotelPayment/>}/>
+              <Route path='/hotelcongratulation' element={<HotelCongratilations/>}/>
             </Routes>
             <Footer/>
             </Suspense>

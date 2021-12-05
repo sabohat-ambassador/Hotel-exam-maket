@@ -151,6 +151,31 @@
     "priceText3":"Bir kishi uchun bir kun nonushta",
     "priceText4":"Xizmat haqi",
     "total":"Umumiy to'lov",
-    "charged":"Sizdan hali toʻlov olinmaydi"
+    "charged":"Sizdan hali toʻlov olinmaydi",
+    "confirm":"Buyurtmangizni tasdiqlang",
+    "yourTour1":"Sizning sayohatingiz",
+    "inputNamedata":"Sana ",
+    "placeholderjune":"2020 yil 27-30 iyun",
+    "inputName":"Sayohatchi",
+    "yourTour2":"Kredit kartalari",
+    "placeholderpas":"1 Yo'lovchi",
+    "nameCard":"Egasining ismi",
+    "aboutCard":"Karta raqami",
+    "aboutCard2":"Tugash muddati",
+    "aboutCard3":"CVC/CVV",
+    "checLabel":"Kartani saqlash",
+    "ConfirmBtn": "Tasdiqlang va zaxiralang",
+    "swisHotels":"Shveytsariya mehmonxonalari va turar joylari",
+    "rooms":"1 yotoqxona + 1 shaxsiy xona",
+    "checked1":"27-iyun, 2020-yil",
+    "checked2":"30-iyun, 2020-yil",
+    "guests":"2 mehmonlar",
+    "fare":"Narxlar haqida xulosa",
+    "checkedOther1":"5 kecha",
+    "checkedOther2":"To'lov matni va to'lov",
+    "checkedOther3":"Xizmat bepul",
+    "checkedOther4":"Jami",
+    "report": "Bu mulk haqida xabar bering"
+ 
 
 }

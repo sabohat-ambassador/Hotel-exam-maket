@@ -151,8 +151,31 @@
     "priceText3":"Breakfast a day per person",
     "priceText4":"Service fee",
     "total":"Total payment",
-    "charged":"You will not get charged yet"
-
+    "charged":"You will not get charged yet",
+    "confirm":"Confirm your Book",
+    "yourTour1":"Your tour",
+    "inputNamedata":"Date",
+    "placeholderjune":"June 27 - 30, 2020",
+    "inputName":"Traveller",
+    "yourTour2":"Creadit Cards",
+    "placeholderpas":"1 Passenger",
+    "nameCard":"Holder Name",
+    "aboutCard":"Card Number",
+    "aboutCard2":"Expiry Date",
+    "aboutCard3":"CVC/CVV",
+    "checLabel":"Save Card",
+    "ConfirmBtn": "Confirm and reserve",
+    "swisHotels":"Switzerland Hotels and Places to Stay",
+    "rooms":"1 bedroom  +  1 private room",
+    "checked1":"June 27, 2020",
+    "checked2":"June 30, 2020 ",
+    "guests":"2 guests",
+    "fare":"Fare summary",
+    "checkedOther1":"5nights",
+    "checkedOther2":"Ocupancy text and fee",
+    "checkedOther3":"Service free",
+    "checkedOther4":"Total",
+    "report": "Report this property"
  
    
 }

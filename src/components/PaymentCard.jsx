@@ -4,17 +4,17 @@ import {useTranslation} from 'react-i18next'
 
 const CardInfo = styled.div`
 max-width: 30%;
-background: #FFFFFF;
-border: 2px solid #E7ECF3;
+background: ${(props) => props.theme.dropcontentbgColor};
+border: 2px solid ${(props) => props.theme.dropcontenborder};
 border-radius: 20px;
 padding: 40px;
-height: 780px;
+height: 800px;
 `
 const SwisHotels = styled.h3`
 font-size: 18px;
 font-weight: 500;
 line-height: 23px;
-color: #141416;
+color: ${(props) => props.theme.swisHotelscolor};
 `
 const Reviews = styled.div`
 display: flex;
@@ -24,7 +24,7 @@ const Star = styled.img`
 margin-right: 8px;
 `
 const Review = styled.span`
-color: #3B3E44;
+color:${(props) => props.theme.textsColor};
 font-size: 14px;
 font-weight: 500;
 line-height: 21px;
@@ -46,9 +46,9 @@ const Rooms = styled.span`
 font-size: 16px;
 font-weight: 500;
 line-height: 24px;
-color: #84878B;
-border-bottom: 1px solid  #EEEEEE;
-padding: 15px;
+color: ${(props) => props.theme.footerText};
+border-bottom: 1px solid  ${(props) => props.theme.dropcontenborder};
+padding-bottom: 15px;
 `
 const SelectedDate = styled.div`
 display: flex;
@@ -59,16 +59,22 @@ const Check = styled.span`
 font-size: 14px;
 font-weight: 500;
 line-height: 21px;
-color: #B1B5C3;
+color: ${(props) => props.theme.checkColors1};
 `
 const Checked = styled.p`
 margin:0;
 font-size: 16px;
 font-weight: 500;
 line-height: 24px;
-color: #84878B;
+color: ${(props) => props.theme.checkedColor};
 `
-
+const CheckedOther = styled.p`
+margin:0;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+color: ${(props) => props.theme.checkedOther};
+`
 const CheckOut = styled.div`
 border-left: 1px solid #F4F5F6;
 padding-left: 14px;
@@ -76,6 +82,14 @@ padding-left: 14px;
 
 const Guest = styled.div`
 margin-top: 21px;
+`
+
+const Fare = styled.h2`
+font-family: Roboto;
+font-size: 26px;
+font-weight: 500;
+line-height: 27px;
+color: ${(props) => props.theme.farecolor};
 `
 const BookDetails = styled.div`
 display: flex;
@@ -86,12 +100,12 @@ const Sum = styled.span`
 font-size: 16px;
 font-weight: 500;
 line-height: 24px;
-color: #353945;
+color: ${(props) => props.theme.fareCheckedColor};
 `
 const Total = styled.div`
 display: flex;
 justify-content: space-between;
-background: #F4F5F6;
+background:  ${(props) => props.theme.totalBgColor};
 padding: 8px 14px;
 border-radius: 6px;
 `
@@ -108,45 +122,45 @@ const PaymentCard  = ()=>{
     const {t} = useTranslation();
     return(
         <CardInfo>
-            <SwisHotels>Switzerland Hotels and Places to Stay </SwisHotels>
+            <SwisHotels>{t('swisHotels')}</SwisHotels>
             <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
             <SwisImg src='/assets/daniel.jpg'/>
             <Roomdiv>
-            <Rooms>1 bedroom  +  1 private room</Rooms>
+            <Rooms>{t('rooms')}</Rooms>
              </Roomdiv>
             <SelectedDate>
                 <div>
-                    <Check>Check in</Check>
-                    <Checked>June 27, 2020 </Checked>
+                    <Check>{t('check1')}</Check>
+                    <Checked>{t('checked1')}</Checked>
                 </div>
                 <CheckOut>
-                <Check>Check out</Check>
-                    <Checked>June 30, 2020 </Checked>
+                <Check>{t('check2')}</Check>
+                    <Checked>{t('checked2')} </Checked>
                 </CheckOut>
             </SelectedDate>
             <Guest>
-                <Check>Guest</Check>
-                <Checked>2 guests</Checked>
+                <Check>{t('cardsName')}</Check>
+                <Checked>{t('guests')}</Checked>
             </Guest>
             <div>
-                <h2>Booked details</h2>
+                <Fare>{t('fare')}</Fare>
                 <BookDetails>
-                    <Checked>$119  +  5nights</Checked>
+                    <CheckedOther>$119  +  {t('checkedOther1')}</CheckedOther>
                     <Sum>$833</Sum>
                 </BookDetails>
                 <BookDetails>
-                    <Checked>Ocupancy text and fee</Checked>
+                    <CheckedOther>{t('checkedOther2')}</CheckedOther>
                     <Sum>-$125</Sum>
                 </BookDetails>
                 <BookDetails>
-                    <Checked>Service free</Checked>
+                    <CheckedOther>{t('checkedOther3')}</CheckedOther>
                     <Sum>$103</Sum>
                 </BookDetails>
                 <Total>
-                    <Checked>Total</Checked>
+                    <CheckedOther>{t('checkedOther4')}</CheckedOther>
                     <Sum>$833</Sum>
                 </Total>
-                <Report>Report this property</Report>
+                <Report>{t('report')}</Report>
             </div>
         </CardInfo>
     )

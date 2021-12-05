@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import {useTranslation} from 'react-i18next'
+import {Navigate, useNavigate } from "react-router-dom";
 
 const ConfirmSection = styled.section`
 max-width: 60%;
@@ -73,7 +75,7 @@ left: 85px;
 `
 const CardsSimilar = styled.div`
 background: ${(props) => props.theme.cardSponsorColor};
-border: 0.5px solid #E6E6E6;
+border: 0.5px solid${(props) => props.theme.sponsorBorder};
 box-sizing: border-box;
 border-radius: 6px;
 padding: 12px;
@@ -81,7 +83,28 @@ width: 96px;
 text-align: center;
 margin-right: 11px;
 `
+const CardsSimilarvisa = styled.div`
+background: ${(props) => props.theme.cardSponsorColor};
+border: 0.5px solid ${(props) => props.theme.sponsorBorder};
+box-sizing: border-box;
+border-radius: 6px;
+padding: 17px;
+width: 96px;
+text-align: center;
+margin-right: 11px;
 
+`
+const CardsSimilaramerican = styled.div`
+background: ${(props) => props.theme.cardSponsorColor};
+border: 0.5px solid${(props) => props.theme.sponsorBorder};
+box-sizing: border-box;
+border-radius: 6px;
+padding: 10px;
+width: 96px;
+text-align: center;
+margin-right: 11px;
+display: ${(props) => props.theme.american};
+`
 const TwoCardExample = styled.div`
 display: flex;
 margin-top: 40px;
@@ -135,7 +158,7 @@ const AboutCard = styled.h5`
 font-size: 16px;
 font-weight: 400;
 line-height: 24px;
-color: #353945;
+color:${(props) => props.theme.textsColor};
 `
 
 const DatesCard = styled.div`
@@ -148,7 +171,7 @@ width: 471px;
 `
 const CardNumbders = styled.input`
 border: 1px solid #878CFF;
-background: #F4F5F6;
+background: ${(props) => props.theme.cardNumbders};
 padding: 13px 20px;
 border-radius: 10px;
 width: 471px;
@@ -164,8 +187,8 @@ const CVC = styled.div`
 position: relative;
 `
 const DateInput = styled.input`
-background: #F4F5F6;
-border: 2px solid #EAEAEA;
+background: ${(props) => props.theme.dateinputColor};
+border: 2px solid ${(props) => props.theme.borderInput};
 box-sizing: border-box;
 border-radius: 10px;
 padding: 13px 20px;
@@ -188,7 +211,7 @@ font-family: Roboto;
 font-size: 16px;
 font-weight: 500;
 line-height: 27px;
-color: #4F4F4F;
+color: ${(props) => props.theme.textsColor};
 margin-left: 11px;
 `
 const ConfirmBtn = styled.button`
@@ -205,27 +228,33 @@ margin-top: 34px;
 
 `
 const ConfirmBook = ()=>{
+    const {t} = useTranslation();
+    let History = useNavigate()
+    const hundleSubmit = (el)=>{
+        el.preventDefault()
+        History('/hotelcongratulation')
+      }
     return(
         <ConfirmSection>
-            <Confirm>Confirm your Book</Confirm>
-            <YourTour>Your tour</YourTour>
+            <Confirm>{t('confirm')}</Confirm>
+            <YourTour>{t('yourTour1')}</YourTour>
             <ToursInputs>
-                <InputName>Date</InputName>
-                <Input type='text' placeholder='June 27 - 30, 2020' />
+                <InputName>{t('inputNamedata')}</InputName>
+                <Input type='text' placeholder={t('placeholderjune')} />
                 <IconPen className='icon-pen'/>
             </ToursInputs>
             <ToursInputs>
-                <InputName>Traveller</InputName>
-                <Input type='text' placeholder='1 Passenger' />
+                <InputName>{t('inputName')} </InputName>
+                <Input type='text' placeholder={t('placeholderpas')} />
                 <IconPen className='icon-pen'/>
             </ToursInputs>
-            <YourTour>Creadit Cards</YourTour>
+            <YourTour>{t('yourTour2')}</YourTour>
             <CreaditSponsers>
                 <Cards><img src="/assets/2circle.svg" alt="circle" /></Cards>
                 <Checkimg src='/assets/check.svg'/>
                 <CardsSimilar><img src="/assets/paypal.svg" alt="paypal" /></CardsSimilar>
-                <CardsSimilar><img src="/assets/visacard.png" alt="visa" /></CardsSimilar>
-                <CardsSimilar><img src="/assets/american.svg" alt="american" /></CardsSimilar>
+                <CardsSimilarvisa><img src="/assets/visacard.png" alt="visa" /></CardsSimilarvisa>
+                <CardsSimilaramerican><img src="/assets/american.svg" alt="american" /></CardsSimilaramerican>
             </CreaditSponsers>
            <TwoCardExample>
                <CardsShape>
@@ -235,7 +264,7 @@ const ConfirmBook = ()=>{
                    </LogoCard>
                    <CardNumber>8948   xxxx  xxxx  7894</CardNumber>
                    <HolderNAme>
-                       <NameCard>Holder Name</NameCard>
+                       <NameCard>{t('nameCard')}</NameCard>
                        <img src="/assets/2circle.svg" alt="" />
                    </HolderNAme>
                </CardsShape>
@@ -246,13 +275,13 @@ const ConfirmBook = ()=>{
                    </LogoCard>
                    <CardNumber>8948   xxxx  xxxx  7894</CardNumber>
                    <HolderNAme>
-                       <NameCard>Holder Name</NameCard>
+                       <NameCard>{t('nameCard')}</NameCard>
                        <img src="/assets/visacard.png" alt="" />
                    </HolderNAme>
                </CardsShape2>
            </TwoCardExample>
                <div>
-                   <AboutCard>Card Number</AboutCard>
+                   <AboutCard>{t('aboutCard')}</AboutCard>
                    <CardInput>
                    <CardNumbders type='text' placeholder='5884 6241 4444 3333'/>
             <PtichkaIcon className='icon-ptichka'></PtichkaIcon>
@@ -260,21 +289,21 @@ const ConfirmBook = ()=>{
                </div>
         <DatesCard>
             <div>
-                <AboutCard>Expiry Date</AboutCard>
+                <AboutCard>{t('aboutCard2')}</AboutCard>
             <DateInput type='text' placeholder='MM / YY'/>
             
             </div>
             <CVC>
-                <AboutCard>CVC/CVV</AboutCard>
+                <AboutCard>{t('aboutCard3')}</AboutCard>
             <DateInput type='text' />
             <PasswordIcon className='icon-password'></PasswordIcon>
             </CVC>
         </DatesCard>
         <Chexbox>
                     <input type="checkbox" id="check3"/>
-                    <ChecLabel htmlFor=''>Save Card</ChecLabel>
+                    <ChecLabel htmlFor=''>{t('checLabel')}</ChecLabel>
         </Chexbox>
-                    <ConfirmBtn>Confirm and reserve</ConfirmBtn>
+                    <ConfirmBtn onClick={hundleSubmit}>{t('ConfirmBtn')}</ConfirmBtn>
         </ConfirmSection>
     )
 }
