@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import MainSearch from '../components/MainSearch'
 import {Navigate, useNavigate } from "react-router-dom";
 import {Section} from '../styled'
-
+import { useTranslation } from 'react-i18next';
 const Container = styled.div`
 padding: 40px 
 `
@@ -44,14 +44,14 @@ const Hotels=()=>{
         el.preventDefault()
         History('/')
       }
-
+      const {t}=  useTranslation()
     return(
         <Section>
             <Container>
 
             <Pages>
-                <HomePage onClick={hundleSubmit}>Home <RideIcon className='icon-rightside'></RideIcon></HomePage>
-                <HotelListPage>Hotel list</HotelListPage>
+                <HomePage onClick={hundleSubmit}>{t('pageHome')} <RideIcon className='icon-rightside'></RideIcon></HomePage>
+                <HotelListPage>{t('pagelist')}</HotelListPage>
             </Pages>
             </Container>
             <MainSearchsection><MainSearch/></MainSearchsection>

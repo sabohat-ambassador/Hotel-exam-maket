@@ -8,6 +8,9 @@ body {
 a {
   text-decoration: none;
 }
+input{
+  outline: none;
+}
 .total{
 font-size: 18px;
 font-weight: 500;
@@ -31,6 +34,16 @@ margin-bottom: 27px;
   padding: 0;
 }
 
+.react-tabs__tab--selected::before{
+  content: '';
+  position: absolute;
+  bottom: -27px;
+  left: 0;
+  width: 70px;
+  height: 2px;
+  background-color: #316BFF;
+}
+
 .react-tabs__tab-list {
   border: none !important;
   margin: 0 !important;
@@ -41,15 +54,6 @@ margin-bottom: 27px;
   padding: 0 !important;
 }
 
-.react-tabs__tab--selected::before{
-  content: '';
-  position: absolute;
-  bottom: -27px;
-  left: 0;
-  width: 70px;
-  height: 2px;
-  background-color: #316BFF;
-}
 
 .css-tlfecz-indicatorContainer {
   display: none !important;
@@ -97,3 +101,4 @@ margin-bottom: 27px;
 ::-webkit-datetime-edit-day-field { color: #84878B; }
 ::-webkit-datetime-edit-year-field { color: #84878B; }
 ::-webkit-datetime-edit-text { color: #84878B; padding: 0 0.1em; }
+

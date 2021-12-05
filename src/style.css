@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ew6mld');
-  src:  url('fonts/icomoon.eot?ew6mld#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ew6mld') format('truetype'),
-    url('fonts/icomoon.woff?ew6mld') format('woff'),
-    url('fonts/icomoon.svg?ew6mld#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?mvd2e6');
+  src:  url('fonts/icomoon.eot?mvd2e6#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?mvd2e6') format('truetype'),
+    url('fonts/icomoon.woff?mvd2e6') format('woff'),
+    url('fonts/icomoon.svg?mvd2e6#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-password:before {
+  content: "\e927";
+}
+.icon-ptichka:before {
+  content: "\e928";
+}
 .icon-Rectangle:before {
   content: "\e926";
 }
@@ -99,19 +105,19 @@
 }
 .icon-krug:before {
   content: "\e913";
-  color: #4f4f4f;
+
 }
 .icon-bed:before {
   content: "\e914";
-  color: #4f4f4f;
+
 }
 .icon-food:before {
   content: "\e915";
-  color: #4f4f4f;
+ 
 }
 .icon-bath:before {
   content: "\e916";
-  color: #4f4f4f;
+
 }
 .icon-loading:before {
   content: "\e917";

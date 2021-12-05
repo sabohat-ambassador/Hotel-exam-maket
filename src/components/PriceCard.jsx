@@ -1,6 +1,6 @@
 import styled, { ThemeContext } from 'styled-components';
 import {Navigate, useNavigate } from "react-router-dom";
-
+import {useTranslation} from 'react-i18next'
 
 const Card = styled.div`
 border: 1px solid ${(props) => props.theme.dropcontenborder};
@@ -12,24 +12,29 @@ border-radius: 20px;
 
 const Prices = styled.div`
 display: flex;
-align-items: center;
 border-bottom: 1px solid  #E6E8EC;
+padding:15px;
+align-items: center;
 `
 const Price = styled.h1`
-font-family: Roboto;
-font-size: 21px;
-font-weight: 500;
-line-height: 27px;
-color:#141416;
+font-weight: bold;
+font-size: 34px;
+line-height: 44px;
+letter-spacing: -0.005em;
+color: ${(props) => props.theme.priceColor};
+margin: 0;
 `
 const Night = styled.span`
 color: #84878B;
+padding-top: 10px;
 `
 const Price2 = styled.span`
 color: #B1B5C4;
 font-size: 18px;
 font-weight: 400;
 line-height: 23px;
+margin-left: 16px;
+margin-top: 16px;
 `
 const Skidka = styled.span`
 font-size: 14px;
@@ -38,8 +43,10 @@ font-weight: 500;
 line-height: 18px;
 color: #FFFFFF;
 background: #145CE6;
-padding: 6px 10px;
+padding: 14px 12px;
+width: 80px;
 border-radius: 25px;
+margin-left: 50px;
 `
 const Row = styled.div`
 display: flex;
@@ -52,7 +59,7 @@ const Check = styled.p`
 font-size: 16px;
 font-weight: 500;
 line-height: 24px;
-color: #84878B;
+color: ${(props) => props.theme.checkColor};
 `
 const Dates = styled.div`
 display: flex;
@@ -60,7 +67,7 @@ align-items: center;
 `
  const Calendar = styled.div`
 position: relative;
-background: #F4F5F6;
+background:${(props) => props.theme.inputBgColors};
 box-sizing: border-box;
 border-radius: 10px;
 width: 152px;
@@ -92,7 +99,7 @@ position: relative;
 `
 const GuestInput = styled.input`
 Width :316px;
-background: #F4F5F6;
+background: ${(props) => props.theme.inputBgColors};
 border-radius: 10px;
 border: none;
 padding: 12px 14px;
@@ -108,14 +115,14 @@ const CardsName = styled.h4`
 font-size: 16px;
 font-weight: 500;
 line-height: 24px;
-color: #777E90;
+color: ${(props) => props.theme.guesExtraColor};
 `
 
 const Label = styled.label`
 font-size: 14px;
 font-weight: 400;
 line-height: 21px;
-color: #353945;
+color:  ${(props) => props.theme.labelColor};
 `
 
 const InputCheck = styled.input`
@@ -136,7 +143,7 @@ color: #B1B5C3;
 const Pricess = styled.div`
 width: 316px;
 border-radius: 10px;
-background: #F4F5F6;
+background: ${(props) => props.theme.inputBgColors};
 padding: 13px 20px;
 `
 const Chexbox = styled.div`
@@ -146,19 +153,19 @@ const PriceText = styled.p`
 font-size: 14px;
 font-weight: 400;
 line-height: 21px;
-color: #353945;
+color:  ${(props) => props.theme.labelColor};
 margin-bottom: 0;
 `
 const Span2 = styled.span`
 font-family: Roboto;
 line-height: 27px;
-color: #353945;
+color: ${(props) => props.theme.labelColor};
 `
 const Total = styled.p`
 font-size: 16px;
 font-weight: 500;
 line-height: 24px;
-color: #777E90;
+color: ${(props) => props.theme.guesExtraColor};
 `
 
 const Span3 = styled.span`
@@ -166,7 +173,7 @@ font-family: Roboto;
 font-size: 16px;
 font-weight: 500;
 line-height: 27px;
-color: #353945;
+color: ${(props) => props.theme.labelColor};
 `
 const BookNow = styled.div`
 text-align: center;
@@ -195,80 +202,84 @@ const PriceCard = ()=>{
         el.preventDefault()
         History('/hotelpayment')
       }
+      const {t} = useTranslation();
     return(
         <Card>
             <Prices>
-                <Price>$142 <Night>/night</Night></Price>
+               <div style={{display: 'flex', alignItems: 'center'}}> 
+                <Price>$142 </Price>
+                <Night>/{t('night')}</Night>
+                </div>
                 <Price2>$184</Price2>
-                <Skidka>20% OFF</Skidka>
+                <Skidka>20% {t('skidka')}</Skidka>
             </Prices>
             <Dates>
                 <div>
-            <Check>Check-In</Check>
+            <Check>{t('check1')}</Check>
             <Calendar>
-                 <DataInput className='check' type='text' placeholder='May 15, 2021' />
+                 <DataInput className='check' type='text' placeholder={t('placeholdermay')} />
                  <CalendarIcon className='icon-calendar'></CalendarIcon>
             </Calendar>
               </div>
               <div>
-            <Check>Check-Out</Check>
+            <Check>{t('check2')}</Check>
             <Calendar>
-                <DataInput className='check' type='text' placeholder='May 15, 2021' />
+                <DataInput className='check' type='text' placeholder={t('placeholdermay')}/>
                 <CalendarIcon className='icon-calendar'></CalendarIcon>
             </Calendar>
               </div>
             </Dates>
             <GuessDiv>
-            <CardsName>Guest</CardsName>
+            <CardsName>{t('cardsName')}</CardsName>
             <GuestInput type='text' placeholder='2 Adults, 1 Children'/>
             <BottomIcon className='icon-bottom'></BottomIcon>
             </GuessDiv>
             
-            <CardsName>Extra Features</CardsName>
+            <CardsName>{t('cardsName2')}</CardsName>
             <Row>
                     <Chexbox>
                     <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>Allow to bring pet</Label>
+                    <Label htmlFor=''>{t('labelAllow')}</Label>
                     </Chexbox>
                  <Span>$13</Span>
             </Row>
             <Row>
                     <Chexbox>
                     <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>Breakfast a day per person</Label>
+                    <Label htmlFor=''>{t('labelbr')}</Label>
                  </Chexbox>
                  <Span>$10</Span>
             </Row>
             <Row>
                     <Chexbox>
                     <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>Parking a day</Label>
+                    <Label htmlFor=''>{t('labelpr')}</Label>
                  </Chexbox>
                  <Span>$6</Span>
             </Row>
             <Row>
                     <Chexbox>
                     <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>Extra pillow</Label>
+                    <Label htmlFor=''>{t('labelex')}</Label>
                  </Chexbox>
-                 <Span>Free</Span>
+                 <Span>{t('spanfree')}</Span>
             </Row>
             <div>
-            <CardsName>Price</CardsName>
+            <CardsName>{t('cardsName3')}</CardsName>
             <Pricess>
-                <Row><PriceText>1 Nights</PriceText><Span2>$500</Span2></Row>
-                <Row><PriceText>Discount 20%</PriceText><Span2>$200</Span2></Row>
-                <Row><PriceText>Breakfast a day per person</PriceText><Span2>$10</Span2></Row>
-                <Row><PriceText>Service fee</PriceText><Span2>$5</Span2></Row>
+                <Row><PriceText>1 {t('priceText1')}</PriceText><Span2>$500</Span2></Row>
+                <Row><PriceText>{t('priceText2')}</PriceText><Span2>$200</Span2></Row>
+                <Row><PriceText>{t('priceText3')}</PriceText><Span2>$10</Span2></Row>
+                <Row><PriceText>{t('priceText4')}</PriceText><Span2>$5</Span2></Row>
             </Pricess>
             </div>
             <Row>
-                <Total>Total payment</Total>
+                <Total>{t('total')}</Total>
                 <Span3>$300</Span3>
             </Row>
             <BookNow>
-            <BookBtn onClick={hundleSubmit}>Book Now</BookBtn>
-            <Charged>You will not get charged yet</Charged>
+            <BookBtn onClick={hundleSubmit}>{t('bookNow')}</BookBtn>
+            <Charged>{t('charged')}</Charged>
             </BookNow>
         </Card>
 

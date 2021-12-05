@@ -301,7 +301,6 @@ export const DarkTheme = {
     spanColor: '#3B3E44',
     hotelCradsColotr: '#FAFAFB',
     hotelLiColor: '#3B3E44',
-    hotelNameColor:'#FCFCFD',
     priceColor: '#222529',
     priceBg: '#F4F5F6',
     homePageColor: '#3B3E44',
@@ -316,7 +315,22 @@ export const DarkTheme = {
    spanColor2: '#FD9704',
    spanColor3: '#0B3BA7',
    spanColor4: '#E96594',
-   spanColor5: '#DC6E3D'
+   spanColor5: '#DC6E3D',
+   exlusiveroomColor: '#23262F',
+   zuichcolor:'#777E90',
+   exclusiveColor: '#353945',
+   feature: '#23262F',
+   featureLicolor: '#4F4F4F',
+   amenitiesColor: '#353945',
+   inputBgColors: '#F4F5F6',
+   priceColor:'#141416',
+   checkColor: '#84878B',
+   guesExtraColor: '#777E91',
+   labelColor:'#353945',
+   confirmColor: '#23262F',
+   yourtour: '#141416',
+   inputNAme: '#141416',
+   cardSponsorColor: '#FFFFFF'
 
 }
 
@@ -369,7 +383,7 @@ export const LightTheme = {
     sunbg: '#3B3E44',
     sunColor: '#84878B',
     shadow: '0px 2px 2px rgba(67, 67, 67, 0.1)',
-    subsccribeInHotellBg: '141416',
+    subsccribeInHotellBg: '#141416',
     passengerNameColor:'#FCFCFD',
     passengerageColor:'#84878B',
     contentBtn: '#84878B',
@@ -386,7 +400,6 @@ export const LightTheme = {
    spanColor: '#F4F5F6',
    hotelCradsColotr: '#141416',
    hotelLiColor: '#E7ECF3',
-   hotelNameColor:'#FCFCFD',
    priceColor: '#FFFFFF',
    priceBg: '#222529',
    homePageColor: '#E7ECF3',
@@ -401,6 +414,22 @@ export const LightTheme = {
    spanColor2: '#E7ECF3',
    spanColor3: '#E7ECF3',
    spanColor4: '#E7ECF3',
-   spanColor5: '#E7ECF3'
+   spanColor5: '#E7ECF3',
+   exlusiveroomColor: '#F4F5F6',
+   zuichcolor:'#84878B',
+   exclusiveColor: '#B1B5C3',
+   feature: '#E7ECF3',
+   featureLicolor: '#B1B5C3',
+   amenitiesColor: '#B1B5C3',
+   inputBgColors: '#3B3E44',
+   priceColor:'#FCFCFD;',
+   checkColor: '#FCFCFD',
+   guesExtraColor: '#FCFCFD',
+   labelColor:'#E7ECF3;',
+   confirmColor: '#FFFFFF',
+   yourtour: '#E7ECF3',
+   inputNAme: '#B1B5C3',
+   cardSponsorColor: '#23262F',
+   sponsorBorder: ''
 };
 

@@ -2,8 +2,8 @@ import {useTranslation} from 'react-i18next'
 import { Container, Theme , Calm} from "../styled"
 import {useState} from 'react'
 import styled, { ThemeContext } from 'styled-components';
-import { t } from "i18next";
-
+import React, { Component } from 'react';
+import Slider from 'react-slick';
 
 const TopSectionText = styled.div`
 display:flex;
@@ -98,6 +98,8 @@ const TopTour = ()=>{
     //         setSlider(Datajson.length)
     //     }
     // }
+    
+     
     return(
         <Container>
             <TopCountryTour>
@@ -113,7 +115,6 @@ const TopTour = ()=>{
             </div>
             </TopSectionText>
             <TopCards>
-
                 <TopTourCard>
                     <TopImg src='/assets/cassie.jpg'></TopImg>
                     <CountryName>Japan</CountryName>
@@ -132,8 +133,8 @@ const TopTour = ()=>{
                     <CountryBottom>Japan</CountryBottom>
                     <PupularPlaces>10 Popular Places</PupularPlaces>
                 </TopTourCard>
-
             </TopCards>
+
             
             </TopCountryTour>
         </Container>

@@ -154,6 +154,7 @@ padding: 5px 18px;
 margin-right: 17px;
 `
 const HotelDetails = ()=>{
+ 
     let History = useNavigate()
     const hundleSubmit = (el)=>{
         el.preventDefault()
@@ -172,11 +173,11 @@ const HotelDetails = ()=>{
 
         <Container>
               <Pages>
-                <HomePage onClick={hundleSubmit}>Home <RideIcon className='icon-rightside'/></HomePage>
-                <HotelListPage onClick={hundleSubmit2}>Hotel list <RideIcon className='icon-rightside'/></HotelListPage>
-                <HotelDetailsPage>Hotel details </HotelDetailsPage>
+                <HomePage onClick={hundleSubmit}>{t('pageHome')} <RideIcon className='icon-rightside'/></HomePage>
+                <HotelListPage onClick={hundleSubmit2}>{t('pagelist')}<RideIcon className='icon-rightside'/></HotelListPage>
+                <HotelDetailsPage>{t('details')}</HotelDetailsPage>
             </Pages>
-            <CountryHotels>Switzerland Hotels and Places to Stay </CountryHotels>
+            <CountryHotels>{t('countryHotels')} </CountryHotels>
             <Row>
             <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
             <Location><LocationIcon className='icon-location'/>{t('countryName')}</Location>
@@ -184,10 +185,10 @@ const HotelDetails = ()=>{
             <HotelPhotos/>
             <Reytings>
               <Span1>5.0</Span1>
-              <Span2>Perfect</Span2>
-              <Span3>Hotels</Span3>
-              <Span4>Building</Span4>
-              <Span5>Top value</Span5>
+              <Span2>{t('span2')}</Span2>
+              <Span3>{t('span3')}</Span3>
+              <Span4>{t('span4')}</Span4>
+              <Span5>{t('span5')}</Span5>
               <ReactStars
     count={5}
     onChange={ratingChanged}
