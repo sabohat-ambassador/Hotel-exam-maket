@@ -343,7 +343,11 @@ export const DarkTheme = {
    farecolor: '#333333',
    fareCheckedColor: '#353945',
    totalBgColor: '#F4F5F6',
-   checkedOther: '#84878B'
+   checkedOther: '#84878B',
+   tourtripcolor: '#3B3E44',
+   borderReserveColor: '#F0EFEF',
+   infoCOlor: '#353945',
+   detailColor: ' #777E90'
 }
 
 export const LightTheme = {
@@ -454,6 +458,10 @@ export const LightTheme = {
    farecolor: '#FFFFFF',
    fareCheckedColor: '#E7ECF3',
    totalBgColor: '#3B3E44',
-   checkedOther: '#E7ECF3'
+   checkedOther: '#E7ECF3',
+   tourtripcolor: '#FCFCFD',
+   borderReserveColor: '#222529',
+   infoCOlor: '#FCFCFD',
+   detailColor: '#E7ECF3'
 };
 

@@ -25,14 +25,18 @@ const Congratulations = styled.h3`
 font-size: 25px;
 font-weight: 700;
 line-height: 21px;
-color: #3B3E44;
+color: ${(props) => props.theme.trendingTextcolor};
+margin-top: 70px;
 `
 const YourTrip = styled.p`
 font-size: 48px;
 font-weight: 500;
 line-height: 60px;
 margin: 0;
-color: #3B3E44;
+color:${(props) => props.theme.tourtripcolor};
+border-bottom: 1px solid  ${(props) => props.theme.borders};
+padding-bottom: 24px;
+width: 822px;
 `
 const H3 = styled.h3`
 font-size: 34px;
@@ -40,16 +44,16 @@ font-style: normal;
 font-weight: 700;
 line-height: 44px;
 letter-spacing: -0.005em;
-color: #23262F;
+color: ${(props) => props.theme.dropColor};
 `
 const Other = styled.div`
 display: flex;
 `
-const Roooms = styled.span`
+const Baggoge = styled.span`
 font-size: 14px;
 font-weight: 500;
 line-height: 21px;
-color: #353945;
+color:${(props) => props.theme.amenitiesColor};
 `
 const Bookedd = styled.div`
 display: flex;
@@ -59,7 +63,7 @@ const AboutPassanger = styled.div`
 display: flex;
 `
 const Info = styled.div`
-background: #F4F4F6;
+background: ${(props) => props.theme.priceBg};
 border-radius: 12px;
 padding: 7px 20px;
 margin-right: 24px;
@@ -70,7 +74,7 @@ margin: 0;
 font-size: 14px;
 font-weight: 500;
 line-height: 21px;
-color: #353945;
+color:${(props) => props.theme.infoCOlor};
 `
 const InformationSpan = styled.span`
 font-size: 16px;
@@ -85,8 +89,8 @@ width: 670px;
 object-fit: cover;
 `
 const ReserveSection = styled.div`
-background: #F4F4F6;
-border: 1px solid #F0EFEF;
+background: ${(props) => props.theme.priceBg};
+border: 1px solid ${(props) => props.theme.borderReserveColor};
 padding: 19px 25px;
 border-radius: 10px;
 margin-top: 30px;
@@ -96,12 +100,12 @@ const H4 = styled.h4`
 font-size: 28px;
 font-weight: 700;
 line-height: 41px;
-color: #23262F;
+color: ${(props) => props.theme.feature};
 margin-top: 0;
 margin-bottom: 18px;
 `
 const ReserveDetail = styled.p`
-color: #777E90;
+color:${(props) => props.theme.detailColor};
 margin-top: 4px;
 `
 const Detailspan = styled.span`
@@ -131,7 +135,7 @@ const Congratulation = ()=>{
                  <H3>Switzerland Hotels and Places to Stay </H3>
                  <Other>
                  <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
-                 <Roooms>1 bad room  +  Private room</Roooms>
+                 <Baggoge>1 Baggoge  +  Meals</Baggoge>
                  </Other>
              </div>
              <Bookedd>
