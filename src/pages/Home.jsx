@@ -12,6 +12,7 @@ import {ForBgColor} from '../styled'
 
 
 const Home = () => {
+    
     return (
         <section>
             <ForBgColor>

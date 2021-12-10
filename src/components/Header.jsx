@@ -90,7 +90,7 @@ const Header = () => {
 
     const { theme, toggleTheme } = useContext(ThemeContext);
     const {t} = useTranslation();
-    const [lang, setLang] = useState(t('language'))
+    const [lang, setLang] = useState(t('en'))
     const [ valuts, setValut] =  useState('USD')
     return (
         <MainHeader>
@@ -117,9 +117,9 @@ const Header = () => {
                     </Flag>
                 </DropBtn>
                 <DropdownContents>
-                    <DropdownLink href="#"  onClick={() => {i18next.changeLanguage('usa') && setLang('usa')}}>
+                    <DropdownLink href="#"  onClick={() => {i18next.changeLanguage('en') && setLang('en')}}>
                         <Flag>
-                            <img style={{width: '100%'}} src={`/assets/usa.png`} alt="flag" />
+                            <img style={{width: '100%'}} src={`/assets/en.png`} alt="flag" />
                         </Flag> {t('lang')}
                         </DropdownLink>
                     <DropdownLink href="#"  onClick={() => {i18next.changeLanguage('ru') && setLang('ru')}}>

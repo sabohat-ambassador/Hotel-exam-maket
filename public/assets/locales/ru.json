@@ -175,7 +175,18 @@
     "checkedOther2":"Текст и плата за занятие",
     "checkedOther3":"Бесплатное обслуживание",
     "checkedOther4":"Общий",
-    "report": "Сообщить об этом объекте"
+    "report": "Сообщить об этом объекте",
+    "congratulations":"Поздравления!",
+    "yourTrip":"Ваша поездка забронирована!",
+    "baggoge":"1 пакетик + еда",
+    "information":"Даты",
+     "informationSpan": "15 - 22 мая 2021 г.",
+     "information2":"Путешественники",
+     "reserve":"Детали резервирования",
+     "reserveDetail1":"Код бронирования",
+     "reserveDetail4":"Способ оплаты",
+     "detailspan2":"30 апреля, 2021",
+     "detailspan4":"Кредитная карта"
  
 
 }

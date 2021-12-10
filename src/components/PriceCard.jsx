@@ -1,6 +1,8 @@
 import styled, { ThemeContext } from 'styled-components';
-import {Navigate, useNavigate } from "react-router-dom";
+import {Link, Navigate, useNavigate } from "react-router-dom";
 import {useTranslation} from 'react-i18next'
+
+
 
 const Card = styled.div`
 border: 1px solid ${(props) => props.theme.dropcontenborder};
@@ -178,7 +180,7 @@ color: ${(props) => props.theme.labelColor};
 const BookNow = styled.div`
 text-align: center;
 `
-const BookBtn = styled.button`
+const BookBtn = styled(Link)`
 font-size: 20px;
 font-weight: 700;
 line-height: 26px;
@@ -196,13 +198,10 @@ font-weight: 400;
 line-height: 21px;
 color: #777E90;
 `
-const PriceCard = ()=>{
-    let History = useNavigate()
-    const hundleSubmit = (el)=>{
-        el.preventDefault()
-        History('/hotelpayment')
-      }
+const PriceCard = (props)=>{
+
       const {t} = useTranslation();
+     
     return(
         <Card>
             <Prices>
@@ -278,7 +277,7 @@ const PriceCard = ()=>{
                 <Span3>$300</Span3>
             </Row>
             <BookNow>
-            <BookBtn onClick={hundleSubmit}>{t('bookNow')}</BookBtn>
+            <BookBtn  to={`/hotelpayment`}>{t('bookNow')}</BookBtn>
             <Charged>{t('charged')}</Charged>
             </BookNow>
         </Card>

@@ -175,7 +175,19 @@
     "checkedOther2":"To'lov matni va to'lov",
     "checkedOther3":"Xizmat bepul",
     "checkedOther4":"Jami",
-    "report": "Bu mulk haqida xabar bering"
+    "report": "Bu mulk haqida xabar bering",
+    "congratulations":"Tabriklaymiz!",
+    "yourTrip":"Sayohatingiz band qilindi!",
+    "baggoge":"1 ta yuk + ovqat",
+    "information":"Sanalar",
+     "informationSpan": "May 15 - 22, 2021",
+     "information2":"Sayohatchilar",
+     "reserve":"Zaxira tafsilotlari",
+     "reserveDetail1":"Rezervasyon kodi",
+     "reserveDetail4":"To'lov usuli",
+     "detailspan1":"FD_158456",
+     "detailspan2":"30 Apr, 2021",
+     "detailspan4":"Kredit karta"
  
 
 }

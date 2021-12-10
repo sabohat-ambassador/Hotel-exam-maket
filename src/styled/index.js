@@ -144,11 +144,10 @@ color: ${(props) => props.theme.calmcolor};
 `
 
 export const ExploreBox = styled.div`
-width: 250px;
 border-radius: 20px;
 background-color: ${(props) => props.theme.exploreCardsColor};
 border: 1px solid ${(props) => props.theme.exploreCardsBorder};
-padding: 14px;
+padding: 18px;
 &:hover {
     {
        background: ${(props) => props.theme.exploreHover};
@@ -234,8 +233,21 @@ export const Section = styled.section`
 background-color: ${(props) => props.theme.hotelsbgcolor};
 `
 
+export const BtnSlider = styled.button`
+height: 36px;
+width: 36px;
+border-radius: 50%;
+background: ${(props) => props.theme.btnSliderBgColor};
+border: none;
+color:${(props) => props.theme.btnSliderColor};
+margin-right: 10px;
+&:hover{
+color: ${(props) => props.theme.sliderBtnhoverColor};
+background: ${(props) => props.theme.sliderBtnHoverbg};
+}
+`
 
-export const DarkTheme = {
+export const  LightTheme= {
     sectionBg: '#141416',
     backgroundColorHeader:  `#FFFFFF `,
     logoNameColor: '#222529',
@@ -347,10 +359,14 @@ export const DarkTheme = {
    tourtripcolor: '#3B3E44',
    borderReserveColor: '#F0EFEF',
    infoCOlor: '#353945',
-   detailColor: ' #777E90'
+   detailColor: ' #777E90',
+   btnSliderBgColor: '#F4F5F6',
+   btnSliderColor: '#B1B5C3',
+   sliderBtnHoverbg: '#E6E8EC',
+   sliderBtnhoverColor: '#84878B'
 }
 
-export const LightTheme = {
+export const DarkTheme = {
     sectionBg: '#FCFCFD',
     backgroundColorHeader: '#222529',
     logoNameColor: '#FFFFFF',
@@ -462,6 +478,10 @@ export const LightTheme = {
    tourtripcolor: '#FCFCFD',
    borderReserveColor: '#222529',
    infoCOlor: '#FCFCFD',
-   detailColor: '#E7ECF3'
+   detailColor: '#E7ECF3',
+   btnSliderBgColor: '#222529',
+   btnSliderColor: '#3B3E44',
+   sliderBtnHoverbg: '#3B3E44',
+   sliderBtnhoverColor: '#E7ECF3'
 };
 

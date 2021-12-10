@@ -175,7 +175,20 @@
     "checkedOther2":"Ocupancy text and fee",
     "checkedOther3":"Service free",
     "checkedOther4":"Total",
-    "report": "Report this property"
+    "report": "Report this property",
+    "congratulations":"Congratulations!",
+    "yourTrip":"Your trip has been booked!",
+    "baggoge":"1 Baggoge  +  Meals",
+    "information":"Dates",
+     "informationSpan": "May 15 - 22, 2021",
+     "information2":"Travelers",
+     "reserve":"Reserve details",
+     "reserveDetail1":"Booking code",
+     "reserveDetail4":"Payment method",
+     "detailspan1":"FD_158456",
+     "detailspan2":"30 Apr, 2021",
+     "detailspan4":"Creadit card"
+
  
    
 }

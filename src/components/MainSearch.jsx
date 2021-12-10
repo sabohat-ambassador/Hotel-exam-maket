@@ -7,6 +7,7 @@ import {FaBed}  from 'react-icons/fa'
 import styled, { ThemeContext } from 'styled-components';
 import { useState } from "react"
 import  Select  from "react-select";
+import { useRef } from "react"
 import { Tab, Tabs, TabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -33,7 +34,7 @@ margin-left: 8px;
 margin-top: 0;
 `
 
-const SearchHotel = styled.div`
+const SearchHotel = styled.form`
 display:flex;
 align-items: center;
 margin-top: 27px;
@@ -178,7 +179,9 @@ const MainSearch = ()=>{
   const [infant, setInfant] = useState(0)
   const [countries, setCountries] = useState();
   const total = passengers + child + infant
-
+  const cityName = useRef(null)
+  const checkIn = useRef(null)
+  const checkOut = useRef(null)
 
   const cityNames = [
     { value: "Dubai", label: "Dubai" },
@@ -189,15 +192,15 @@ const MainSearch = ()=>{
     { value: "Russia", label: "Russia" },
     { value: "America", label: "America" },
     { value: "Japan", label: "Japan" },
+    { value: "Italy", label: "Italy" },
     { value: "Karea", label: "Karea" },
     { value: "Fransia", label: "Fransia" },
     { value: "Uzbekistan", label: "Uzbekistan" },
-    { value: "Italy", label: "Italy" },
   ]
 
-
+ 
   const hendleActive = (e)=>{
-    if(e.target.className==='total'){
+    if(e.target.className ==='total'){
       e.target.className = 'total active'
     } else if(e.target.className ==='total active' ){
       e.target.className ='total'
@@ -206,6 +209,9 @@ const MainSearch = ()=>{
 
   const hundleSubmit = (el)=>{
     el.preventDefault()
+    console.log(cityName.current.controlRef.innerText);
+    console.log(checkIn.current.value);
+    console.log(checkOut.current.value);
     History('/Hotels')
   }
   const hendleCities = (newValue)=>{
@@ -279,19 +285,19 @@ const MainSearch = ()=>{
                       </TopMenus>
                       <SearchHotel>
                         <LocationSearch>
-                        <Form>
-                          <SearchInputsName>{t('searchInput')}</SearchInputsName>
-                            <Select options={cityNames} placeholder={t('placeholder1')} onClick={hendleCities} />
+                        <Form >
+                          <SearchInputsName  >{t('searchInput')}</SearchInputsName>
+                            <Select ref={cityName} options={cityNames} placeholder={t('placeholder1')} onClick={hendleCities} />
                            </Form>
                         </LocationSearch>
-                        <Calendar>
-                          <SearchInputsName>{t('searchInput2')}</SearchInputsName>
-                         <DataInput className='check' type='date' placeholder={t('placeholder2')}/>
+                        <Calendar >
+                          <SearchInputsName >{t('searchInput2')}</SearchInputsName>
+                         <DataInput ref={checkIn} className='check' type='date' placeholder={t('placeholder2')}/>
                          <Icon className='icon-rightleft'></Icon>
                         </Calendar>
-                        <Calendar>
-                        <SearchInputsName>{t('searchInput3')}</SearchInputsName>
-                         <DataInput className='check' type='date' placeholder={t('placeholder2')}/>
+                        <Calendar >
+                        <SearchInputsName >{t('searchInput3')}</SearchInputsName>
+                         <DataInput ref={checkOut} className='check' type='date' placeholder={t('placeholder2')}/>
                          <Icon className='icon-rightleft'></Icon>
                         </Calendar>
                         <SearchBtn onClick={hundleSubmit}>{t('searchBtn')}</SearchBtn>

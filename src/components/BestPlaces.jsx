@@ -5,6 +5,7 @@ import { Container,  BestBg, IntroTheme, PlaceName } from '../styled';
 
 const Card= styled.div`
 display:flex;
+flex-wrap: wrap;
 justify-content: space-between;
 margin-top: 65px;
 `
@@ -36,6 +37,7 @@ width: 210px;
 border-radius: 10px;
 border: 1px solid #E7ECF3;
 padding: 30px;
+margin-bottom: 30px;
 &:hover {
      {
         background:  ${(props) => props.theme.cardHover};
@@ -62,6 +64,7 @@ color: #84878B;
 `
 const BestPlaces=()=>{
     const {t} = useTranslation();
+  
     return(
             <BestBg>
         <Container>
@@ -78,18 +81,38 @@ const BestPlaces=()=>{
                 <Destinations>86 Destinations</Destinations>
             </BestCard>
             <BestCard>
-                <Placeimg src='/assets/ahsan.png'></Placeimg>
-                <PlaceName>Batu, East Java</PlaceName>
+                <Placeimg src='/assets/kuta.jpg'></Placeimg>
+                <PlaceName>Kuta</PlaceName>
+                <Destinations>86 Destinations</Destinations>
+            </BestCard>
+            <BestCard>
+                <Placeimg src='/assets/surabaya.jpg'></Placeimg>
+                <PlaceName>Surabaya, East Java</PlaceName>
+                <Destinations>86 Destinations</Destinations>
+            </BestCard>
+            <BestCard>
+                <Placeimg src='/assets/malang.jpg'></Placeimg>
+                <PlaceName>Malang, East Java</PlaceName>
+                <Destinations>86 Destinations</Destinations>
+            </BestCard>
+            <BestCard>
+                <Placeimg src='/assets/malang.jpg'></Placeimg>
+                <PlaceName>Dieng, Central Java</PlaceName>
+                <Destinations>86 Destinations</Destinations>
+            </BestCard>
+            <BestCard>
+                <Placeimg src='/assets/nusa.jpg'></Placeimg>
+                <PlaceName>Nusa Dua, Lombok</PlaceName>
+                <Destinations>86 Destinations</Destinations>
+            </BestCard>
+            <BestCard>
+                <Placeimg src='/assets/kuta.jpg'></Placeimg>
+                <PlaceName>Bandung, West Java</PlaceName>
                 <Destinations>86 Destinations</Destinations>
             </BestCard>
             <BestCard>
                 <Placeimg src='/assets/ahsan.png'></Placeimg>
-                <PlaceName>Batu, East Java</PlaceName>
-                <Destinations>86 Destinations</Destinations>
-            </BestCard>
-            <BestCard>
-                <Placeimg src='/assets/ahsan.png'></Placeimg>
-                <PlaceName>Batu, East Java</PlaceName>
+                <PlaceName>Wakatobi, Sumatera</PlaceName>
                 <Destinations>86 Destinations</Destinations>
             </BestCard>
             </Card>

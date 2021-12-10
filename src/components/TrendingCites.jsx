@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import styled, { ThemeContext } from 'styled-components';
 import {TrendingSection, TrendingBox, TrendingPlace} from '../styled'
-
+import {useState, useEffect} from 'react'
+import apiCalls from '../config/api';
 
 const TrendingTopText = styled.div`
 text-align: center;
@@ -88,6 +89,37 @@ border:none;
 
 const TrendingCites = ()=>{
     const {t}=  useTranslation()
+    const [trendinglist, setTrending] = useState([]);
+    const [error, setError] = useState('');
+    
+    useEffect(() => {
+        const getCities = async () => {
+          try {
+              const data = await apiCalls.getCities();
+              setTrending(data);
+          } catch (error) {
+              setError(error.message);
+          }
+         
+        }
+        getCities();
+      },[]);
+      const mappedTrendingList = trendinglist.map( el => (
+    
+        <TrendingBox>
+        <TrendImg src={el.photo}></TrendImg>
+      <TrendingAbout>
+          <TrendingPlace>{el.name}</TrendingPlace>
+          <Reviews>
+              <Star src='/assets/star.png'/>
+              <Number>{el.rating}  </Number> 
+          </Reviews>
+          <Price>$ {el.price}<Span>/night</Span></Price>
+          <BookNow>Book Now</BookNow>
+      </TrendingAbout>
+  </TrendingBox>
+          
+       ))
     return(
         <TrendingSection>
             <TrendingTopText>
@@ -95,78 +127,7 @@ const TrendingCites = ()=>{
                 <TrendingText>{t('trendingText')}</TrendingText>
             </TrendingTopText>
             <TrendingCards>
-                <TrendingBox>
-                      <TrendImg src='/assets/manila.jpg'></TrendImg>
-                    <TrendingAbout>
-                        <TrendingPlace>Manila</TrendingPlace>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <Price>$250.00<Span>/night</Span></Price>
-                        <BookNow>Book Now</BookNow>
-                    </TrendingAbout>
-                </TrendingBox>
-                <TrendingBox>
-                      <TrendImg src='/assets/manila.jpg'></TrendImg>
-                    <TrendingAbout>
-                        <TrendingPlace>Manila</TrendingPlace>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <Price>$250.00<Span>/night</Span></Price>
-                        <BookNow>Book Now</BookNow>
-                    </TrendingAbout>
-                </TrendingBox>
-                <TrendingBox>
-                      <TrendImg src='/assets/manila.jpg'></TrendImg>
-                    <TrendingAbout>
-                        <TrendingPlace>Manila</TrendingPlace>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <Price>$250.00<Span>/night</Span></Price>
-                        <BookNow>Book Now</BookNow>
-                    </TrendingAbout>
-                </TrendingBox>
-                <TrendingBox>
-                      <TrendImg src='/assets/manila.jpg'></TrendImg>
-                    <TrendingAbout>
-                        <TrendingPlace>Manila</TrendingPlace>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <Price>$250.00<Span>/night</Span></Price>
-                        <BookNow>Book Now</BookNow>
-                    </TrendingAbout>
-                </TrendingBox>
-                <TrendingBox>
-                      <TrendImg src='/assets/manila.jpg'></TrendImg>
-                    <TrendingAbout>
-                        <TrendingPlace>Manila</TrendingPlace>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <Price>$250.00<Span>/night</Span></Price>
-                        <BookNow>Book Now</BookNow>
-                    </TrendingAbout>
-                </TrendingBox>
-                <TrendingBox>
-                      <TrendImg src='/assets/manila.jpg'></TrendImg>
-                    <TrendingAbout>
-                        <TrendingPlace>Manila</TrendingPlace>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <Price>$250.00<Span>/night</Span></Price>
-                        <BookNow>Book Now</BookNow>
-                    </TrendingAbout>
-                </TrendingBox>
+               {mappedTrendingList}
             </TrendingCards>
         </TrendingSection>
     )

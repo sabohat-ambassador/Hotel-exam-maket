@@ -1,6 +1,10 @@
 import styled from "styled-components"
 import {useTranslation} from 'react-i18next'
-import {Navigate, useNavigate } from "react-router-dom";
+import {Link, Navigate, useNavigate } from "react-router-dom";
+import {useState, useEffect} from 'react'
+import apiCalls from '../config/api';
+
+
 const HotelListSection = styled.section`
 // margin-left: 10px;
 `
@@ -8,11 +12,14 @@ const HotelListSection = styled.section`
 const AboutHotels = styled.div`
 display:flex;
 margin-bottom: 50px;
+width: 950px;
 `
 
 const HotelPhoto = styled.img`
 border-top-left-radius: 20px;
 border-bottom-left-radius: 20px;
+
+width: 420px;
 `
 
 const FilteredHotel = styled.div`
@@ -147,6 +154,7 @@ color:${(props) => props.theme.priceColor};
 background: ${(props) => props.theme.priceBg};
 border-radius: 37px;
 padding: 5px 9px;
+margin-bottom: 20px;
 `
 const ForTwo = styled.span`
 font-size: 16px;
@@ -155,7 +163,7 @@ line-height: 24px;
 color:#84878B;
 margin-left: 8px;
 `
-const ButtonBookNow = styled.button`
+const BookNow = styled(Link)`
 background: #3B71FE;
 box-shadow: 0px 5px 20px rgba(20, 92, 230, 0.14);
 border-radius: 23px;
@@ -165,7 +173,6 @@ line-height: 26px;
 padding: 9px 32px;
 border: none;
 color: #FFFFFF;
-margin-top: 20px;
 cursor: pointer;
 `
 
@@ -200,92 +207,57 @@ const HotelList = ()=>{
         el.preventDefault()
         History('/HotelDetails')
       }
+     
+      const [hotelList, setHotelList] = useState([]);
+      const [error, setError] = useState('');
+    
+      useEffect(() => {
+          const getHotels = async () => {
+            try {
+                const data = await apiCalls.getHotels();
+                setHotelList(data);
+            } catch (error) {
+                setError(error.message);
+            }
+           
+          }
+          getHotels();
+        },[]);
+
+        const mappedHotels = hotelList.map( el => (
+            <AboutHotels>
+            <HotelPhoto src={el.photo}></HotelPhoto>
+            <FilteredHotel>
+                <CountryName>{el.name}</CountryName>
+                <NameHotel>
+                <Reviews><Star src='/assets/star.png'/><Review>{el.rating} <SpanRew>({el.reviews}) reviews</SpanRew></Review></Reviews>
+                <Flag><IconFlaG className='icon-flagg'/> {el.location}</Flag>
+                </NameHotel>
+                <LocData>
+                    <Location><LocationIcon className='icon-location'/>{el.location}</Location>
+                    <Data><CalendarIcon className='icon-calendar'/>15.05.2021-16.05.2021</Data>
+                </LocData>
+                <Depature><PlaneIcon className='icon-plane'/>{t('depature')}</Depature>
+                <ServicesHotel>
+                    <Service>
+                        <Li> <IconsService className='icon-wifiright'/>{t('li1')}</Li>
+                        <Li><IconsService className='icon-Union'/>{t('li2')}</Li>
+                        <Li><IconsService className='icon-cash'/>{t('li3')}</Li>
+                        <Li><WWWimg src='/assets/www.svg'/>{t('li4')}</Li>
+                        <Li><IconsService className='icon-icsafety'/>{t('li5')}</Li>
+                    </Service>
+                    <ServiceBut>
+                        <Price>${el.price}<ForTwo>{t('fortwo')}</ForTwo></Price>
+                        <BookNow  to={`/hoteldetails/${el.id}`}>{t('bookNow')}</BookNow>
+                    </ServiceBut>
+                </ServicesHotel>
+            </FilteredHotel>
+        </AboutHotels>
+              
+           ))
     return(
         <HotelListSection>
-            <AboutHotels>
-                <HotelPhoto src='/assets/daniel.jpg'></HotelPhoto>
-                <FilteredHotel>
-                    <CountryName>{t('countryName')}</CountryName>
-                    <NameHotel>
-                    <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
-                    <Flag><IconFlaG className='icon-flagg'/> {t('countryName')} </Flag>
-                    </NameHotel>
-                    <LocData>
-                        <Location><LocationIcon className='icon-location'/>{t('countryName')}</Location>
-                        <Data><CalendarIcon className='icon-calendar'/>15.05.2021-16.05.2021</Data>
-                    </LocData>
-                    <Depature><PlaneIcon className='icon-plane'/>{t('depature')}</Depature>
-                    <ServicesHotel>
-                        <Service>
-                            <Li> <IconsService className='icon-wifiright'/>{t('li1')}</Li>
-                            <Li><IconsService className='icon-Union'/>{t('li2')}</Li>
-                            <Li><IconsService className='icon-cash'/>{t('li3')}</Li>
-                            <Li><WWWimg src='/assets/www.svg'/>{t('li4')}</Li>
-                            <Li><IconsService className='icon-icsafety'/>{t('li5')}</Li>
-                        </Service>
-                        <ServiceBut>
-                            <Price>$320<ForTwo>{t('fortwo')}</ForTwo></Price>
-                            <ButtonBookNow type='submit' onClick={hundleSubmit}>{t('bookNow')}</ButtonBookNow>
-                        </ServiceBut>
-                    </ServicesHotel>
-                </FilteredHotel>
-            </AboutHotels>
-            <AboutHotels>
-                <HotelPhoto src='/assets/daniel.jpg'></HotelPhoto>
-                <FilteredHotel>
-                    <CountryName>{t('countryName')}</CountryName>
-                    <NameHotel>
-                    <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
-                    <Flag><IconFlaG className='icon-flagg'/> {t('countryName')} </Flag>
-                    </NameHotel>
-                    <LocData>
-                        <Location><LocationIcon className='icon-location'/>{t('countryName')}</Location>
-                        <Data><CalendarIcon className='icon-calendar'/>15.05.2021-16.05.2021</Data>
-                    </LocData>
-                    <Depature><PlaneIcon className='icon-plane'/>{t('depature')}</Depature>
-                    <ServicesHotel>
-                        <Service>
-                            <Li> <IconsService className='icon-wifiright'/>{t('li1')}</Li>
-                            <Li><IconsService className='icon-Union'/>{t('li2')}</Li>
-                            <Li><IconsService className='icon-cash'/>{t('li3')}</Li>
-                            <Li><WWWimg src='/assets/www.svg'/>{t('li4')}</Li>
-                            <Li><IconsService className='icon-icsafety'/>{t('li5')}</Li>
-                        </Service>
-                        <ServiceBut>
-                            <Price>$320<ForTwo>{t('fortwo')}</ForTwo></Price>
-                            <ButtonBookNow type='submit' onClick={hundleSubmit}>{t('bookNow')}</ButtonBookNow>
-                        </ServiceBut>
-                    </ServicesHotel>
-                </FilteredHotel>
-            </AboutHotels>
-            <AboutHotels>
-                <HotelPhoto src='/assets/daniel.jpg'></HotelPhoto>
-                <FilteredHotel>
-                    <CountryName>{t('countryName')}</CountryName>
-                    <NameHotel>
-                    <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
-                    <Flag><IconFlaG className='icon-flagg'/> {t('countryName')} </Flag>
-                    </NameHotel>
-                    <LocData>
-                        <Location><LocationIcon className='icon-location'/>{t('countryName')}</Location>
-                        <Data><CalendarIcon className='icon-calendar'/>15.05.2021-16.05.2021</Data>
-                    </LocData>
-                    <Depature><PlaneIcon className='icon-plane'/>{t('depature')}</Depature>
-                    <ServicesHotel>
-                        <Service>
-                            <Li> <IconsService className='icon-wifiright'/>{t('li1')}</Li>
-                            <Li><IconsService className='icon-Union'/>{t('li2')}</Li>
-                            <Li><IconsService className='icon-cash'/>{t('li3')}</Li>
-                            <Li><WWWimg src='/assets/www.svg'/>{t('li4')}</Li>
-                            <Li><IconsService className='icon-icsafety'/>{t('li5')}</Li>
-                        </Service>
-                        <ServiceBut>
-                            <Price>$320<ForTwo>{t('fortwo')}</ForTwo></Price>
-                            <ButtonBookNow type='submit' onClick={hundleSubmit}>{t('bookNow')}</ButtonBookNow>
-                        </ServiceBut>
-                    </ServicesHotel>
-                </FilteredHotel>
-            </AboutHotels>
+           {mappedHotels}
             
             <ButtonViewall>
             <ButtonView><IconLoading className='icon-loading'/>{t('view')}</ButtonView>

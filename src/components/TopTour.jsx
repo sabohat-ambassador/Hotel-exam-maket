@@ -1,12 +1,16 @@
 import {useTranslation} from 'react-i18next'
-import { Container, Theme , Calm} from "../styled"
-import {useState} from 'react'
+import { Container, Theme , Calm, BtnSlider} from "../styled"
+import {useState, useEffect} from 'react'
 import styled, { ThemeContext } from 'styled-components';
 import React, { Component } from 'react';
-import Slider from 'react-slick';
+import apiCalls from '../config/api';
+import {Swiper, SwiperSlide} from 'swiper/react'
+import SwiperCore, {Navigation} from 'swiper'
 
 const TopSectionText = styled.div`
 display:flex;
+align-items: center;
+justify-content: space-between;
 `
 
 const TopCountryTour = styled.section`
@@ -16,12 +20,12 @@ margin-top:70px;
 
 const TopCards = styled.div`
 display:flex;
-justify-content: space-between;
-margin-top:61px;
+
 `
 
 const TopTourCard = styled.div`
-position:relative;
+position: relative;
+margin-top:61px;
 `
 
 const TopImg = styled.img`
@@ -70,36 +74,41 @@ left: 35px;
 color: #FCFCFD;
 margin-top:8px;
 `
-const BtnSlider = styled.button`
-height: 36px;
-width: 36px;
-border-radius: 50%;
-background: #F4F5F6;
-`
 
 
 
 const TopTour = ()=>{
     const {t} = useTranslation();
-    // const [slider, setSlider] = useState(1)
 
-    // const NextSlide = ()=>{
-    //     if(slider!== Datajson.length){
-    //         setSlider(slider + 1)
-    //     }else if (slider=== Datajson.length){
-    //         setSlider(1)
-    //     }
-    // }
+   
+    const [tourList, setTourList] = useState([]);
+    const [error, setError] = useState('');
+    useEffect(() => {
 
-    // const PrevSlide = ()=>{
-    //     if(slider !== 1){
-    //         setSlider(slider-1)
-    //     }else if(slider === 1){
-    //         setSlider(Datajson.length)
-    //     }
-    // }
+        const getTours = async () => {
+          try {
+              const data = await apiCalls.getTours();
+              setTourList(data);
+          } catch (error) {
+              setError(error.message);
+          }
+         
+        }
+        getTours();
+      },[]);
+
+   const mappedTour = tourList.map( el => (
     
-     
+    <SwiperSlide>
+   <TopTourCard >
+           <TopImg src={el.photo}></TopImg>
+                    <CountryName>{el.name}</CountryName>
+                    <CountryBottom>{el.country}</CountryBottom>
+                    <PupularPlaces>{el.place_count}  Popular Places</PupularPlaces>
+      </TopTourCard>
+      </SwiperSlide>
+   ))
+   SwiperCore.use([Navigation]);
     return(
         <Container>
             <TopCountryTour>
@@ -110,30 +119,23 @@ const TopTour = ()=>{
                     <Calm>{t('calm')}</Calm>
                 </div>
                 <div>
-               {/* <BtnSlider moveslide={PrevSlide} direction={'prev'}><i className='icon-leftside'></i></BtnSlider> 
-               <BtnSlider moveslide={NextSlide} direction={'next'}><i className='icon-rightside'></i></BtnSlider>  */}
+               <BtnSlider className='swiper-prev'><i className='icon-leftside'></i></BtnSlider> 
+               <BtnSlider className='swiper-next' ><i className='icon-rightside'></i></BtnSlider> 
             </div>
             </TopSectionText>
-            <TopCards>
-                <TopTourCard>
-                    <TopImg src='/assets/cassie.jpg'></TopImg>
-                    <CountryName>Japan</CountryName>
-                    <CountryBottom>Japan</CountryBottom>
-                    <PupularPlaces>10 Popular Places</PupularPlaces>
-                </TopTourCard>
-                <TopTourCard>
-                    <TopImg src='/assets/cassie.jpg'></TopImg>
-                    <CountryName>Japan</CountryName>
-                    <CountryBottom>Japan</CountryBottom>
-                    <PupularPlaces>10 Popular Places</PupularPlaces>
-                </TopTourCard>
-                <TopTourCard>
-                    <TopImg src='/assets/cassie.jpg'></TopImg>
-                    <CountryName>Japan</CountryName>
-                    <CountryBottom>Japan</CountryBottom>
-                    <PupularPlaces>10 Popular Places</PupularPlaces>
-                </TopTourCard>
+            <Swiper spaceBetween={30}  slidesPerView={3}loop modules= {{Navigation}}
+        
+        navigation={{
+            nextEl: '.swiper-next',
+            prevEl: '.swiper-prev'
+        }}
+            >
+        <TopCards>
+                {error ? error : mappedTour}
             </TopCards>
+            </Swiper>
+            
+            
 
             
             </TopCountryTour>

@@ -9,6 +9,9 @@ import { DarkTheme, LightTheme } from "./styled";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HotelCongratilations from "./pages/HotelCongratulations";
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+import NotFound from "./pages/NotFound";
 
 
 const App = () => {
@@ -25,9 +28,10 @@ const App = () => {
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/hotels' element={<Hotels/>}/>
-              <Route path='/hoteldetails' element={<HotelDetails/>}/>
+              <Route path='/hoteldetails/:id' element={<HotelDetails/>}/>
               <Route path='/hotelpayment' element={<HotelPayment/>}/>
               <Route path='/hotelcongratulation' element={<HotelCongratilations/>}/>
+              <Route path='*' element={<NotFound/>}/>
             </Routes>
             <Footer/>
             </Suspense>

@@ -1,6 +1,9 @@
 import styled from "styled-components"
 import {useTranslation} from 'react-i18next'
-
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
+import apiCalls from '../config/api';
 
 const CardInfo = styled.div`
 max-width: 30%;
@@ -118,8 +121,25 @@ line-height: 21px;
 color: #B1B5C3;
 margin-top: 30px;
 `
-const PaymentCard  = ()=>{
+const PaymentCard  = (props)=>{
     const {t} = useTranslation();
+    // const [payment, setPayment] = useState([])
+    // const [error, setError] = useState('');
+    // const { id } = useParams();
+    // useEffect(() => {
+    //   console.log(id);
+    //   const getHotelDetail = async () => {
+    //     try {
+    //       const data = await apiCalls.getHotelDetail(id);
+    //       setPayment(data);
+    //       console.log(data)
+    //     } catch (error) {
+    //         setError(error.message);
+    //     };
+    //   };
+    //   getHotelDetail();
+        
+    // }, [id]);
     return(
         <CardInfo>
             <SwisHotels>{t('swisHotels')}</SwisHotels>

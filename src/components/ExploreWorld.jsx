@@ -1,7 +1,10 @@
-import { Container, Theme, ExplorePlace, ExploreBox , ComfortTheme} from "../styled"
+import { Container, Theme, ExplorePlace, ExploreBox , ComfortTheme, BtnSlider} from "../styled"
 import {useTranslation} from 'react-i18next'
 import styled, { ThemeContext } from 'styled-components';
-
+import {useState, useEffect} from 'react'
+import apiCalls from '../config/api';
+import {Swiper, SwiperSlide} from 'swiper/react'
+import SwiperCore, {Navigation} from 'swiper'
 
 const Explore = styled.section`
 margin-top:70px;
@@ -89,73 +92,79 @@ const IconRoom  = styled.i`
 color:#B1B5C3;
 font-size: 15px;
 `
+const TopText = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+`
+
+
 const ExploreWorld = ()=>{
     const {t} = useTranslation();
+    const [exploreList, setExplore] = useState([]);
+    const [error, setError] = useState('');
+    
+    useEffect(() => {
+        const getExplore = async () => {
+          try {
+              const data = await apiCalls.getExplore();
+              setExplore(data);
+          } catch (error) {
+              setError(error.message);
+          }
+         
+        }
+        getExplore();
+      },[]);
+
+      
+   const mappedExplore = exploreList.map( el => (
+    
+    <SwiperSlide>
+     <ExploreBox>
+                        <ComfortImg src={el.image}></ComfortImg>
+                        <Reviews>
+                            <Star src='/assets/star.png'/>
+                            <Number>{el.rating} <Span>(147)</Span> </Number> 
+                        </Reviews>
+                        <ComfortSpace>
+                            <ComfortTheme>{el.title}</ComfortTheme>
+                            <Price>$ {el.price}</Price>
+                        </ComfortSpace>
+                        <Distance>{el.radius} to Town Center</Distance>
+                       <Location> <IconLoc className='icon-location'></IconLoc> {el.location}</Location> 
+                       <Rooms> <IconRoom className='icon-apartment'> </IconRoom>Rooms available: {el.rooms}</Rooms>
+                    </ExploreBox>
+      </SwiperSlide>
+   ))
+   SwiperCore.use([Navigation]);
     return(
         <Container>
             <Explore>
+                <TopText>
                 <ExploreText>
                     <Theme>{t('explore')}</Theme>
                     <ExplorePlace>{t('explorePlace')}</ExplorePlace>
                 </ExploreText>
+                <div> 
+                    <BtnSlider className='swipere-xplore-prev'><i className='icon-leftside'></i></BtnSlider> 
+               <BtnSlider className='swiper-explore-next' ><i className='icon-rightside'></i></BtnSlider> 
+               </div>
+
+                </TopText>
+                <Swiper spaceBetween={15}  slidesPerView={4}loop modules= {{Navigation}}
+    
+        navigation={{
+            nextEl: '.swiper-explore-next',
+            prevEl: '.swipere-xplore-prev'
+        }}
+            >
                 <ExploreCards>
-                    <ExploreBox>
-                        <ComfortImg src='/assets/comfort.jpg'></ComfortImg>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <ComfortSpace>
-                            <ComfortTheme>Comfort Space</ComfortTheme>
-                            <Price>$210</Price>
-                        </ComfortSpace>
-                        <Distance>1.2 km to Town Center</Distance>
-                       <Location> <IconLoc className='icon-location'></IconLoc> Turkey, Mamaris</Location> 
-                       <Rooms> <IconRoom className='icon-apartment'> </IconRoom>Rooms available: 375 </Rooms>
-                    </ExploreBox>
-                    <ExploreBox>
-                        <ComfortImg src='/assets/comfort.jpg'></ComfortImg>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <ComfortSpace>
-                            <ComfortTheme>Comfort Space</ComfortTheme>
-                            <Price>$210</Price>
-                        </ComfortSpace>
-                        <Distance>1.2 km to Town Center</Distance>
-                       <Location> <IconLoc className='icon-location'></IconLoc> Turkey, Mamaris</Location> 
-                       <Rooms> <IconRoom className='icon-apartment'> </IconRoom>Rooms available: 375 </Rooms>
-                    </ExploreBox>
-                    <ExploreBox>
-                        <ComfortImg src='/assets/comfort.jpg'></ComfortImg>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <ComfortSpace>
-                            <ComfortTheme>Comfort Space</ComfortTheme>
-                            <Price>$210</Price>
-                        </ComfortSpace>
-                        <Distance>1.2 km to Town Center</Distance>
-                       <Location> <IconLoc className='icon-location'></IconLoc> Turkey, Mamaris</Location> 
-                       <Rooms> <IconRoom className='icon-apartment'> </IconRoom>Rooms available: 375 </Rooms>
-                    </ExploreBox>
-                    <ExploreBox>
-                        <ComfortImg src='/assets/comfort.jpg'></ComfortImg>
-                        <Reviews>
-                            <Star src='/assets/star.png'/>
-                            <Number>4.91 <Span>(147)</Span> </Number> 
-                        </Reviews>
-                        <ComfortSpace>
-                            <ComfortTheme>Comfort Space</ComfortTheme>
-                            <Price>$210</Price>
-                        </ComfortSpace>
-                        <Distance>1.2 km to Town Center</Distance>
-                       <Location> <IconLoc className='icon-location'></IconLoc> Turkey, Mamaris</Location> 
-                       <Rooms> <IconRoom className='icon-apartment'> </IconRoom>Rooms available: 375 </Rooms>
-                    </ExploreBox>
+                  
+                  {error ? error: mappedExplore}
+                 
                 </ExploreCards>
+                </Swiper>
             </Explore>
         </Container>
     )

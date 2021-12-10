@@ -128,46 +128,46 @@ const Congratulation = ()=>{
     return(
         <div>
             <div>
-            <Congratulations>Congratulations!</Congratulations>
-            <YourTrip>Your trip has been booked!</YourTrip>
+            <Congratulations>{t('congratulations')}</Congratulations>
+            <YourTrip>{t('yourTrip')}</YourTrip>
              </div>
              <div>
-                 <H3>Switzerland Hotels and Places to Stay </H3>
+                 <H3>{t('swisHotels')} </H3>
                  <Other>
                  <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
-                 <Baggoge>1 Baggoge  +  Meals</Baggoge>
+                 <Baggoge>{t('baggoge')}</Baggoge>
                  </Other>
              </div>
              <Bookedd>
                  <div>
                  <AboutPassanger>
                      <Info>
-                         <Information>Dates</Information>
-                         <InformationSpan>May 15 - 22, 2021 </InformationSpan>
+                         <Information>{t('information')}</Information>
+                         <InformationSpan>{t('informationSpan')} </InformationSpan>
                      </Info>
                      <Info>
-                         <Information>Travelers</Information>
-                         <InformationSpan>1 Passenger</InformationSpan>
+                         <Information>{t('information2')}</Information>
+                         <InformationSpan>{t('placeholderpas')}</InformationSpan>
                      </Info>
                  </AboutPassanger>
                  <ReserveSection>
-                     <H4>Reserve details</H4>
+                     <H4>{t('reserve')}</H4>
                     <div>
                         <Reserve>
-                            <ReserveDetail><DetailIcon className='icon-Layer'></DetailIcon>Booking code</ReserveDetail>
+                            <ReserveDetail><DetailIcon className='icon-Layer'></DetailIcon>{t('reserveDetail1')}</ReserveDetail>
                             <Detailspan>FD_158456</Detailspan>
                         </Reserve>
                         <Reserve>
-                            <ReserveDetail><DetailIcon className='icon-data'></DetailIcon>Date</ReserveDetail>
-                            <Detailspan>30 Apr, 2021</Detailspan>
+                            <ReserveDetail><DetailIcon className='icon-data'></DetailIcon>{t('inputNamedata')}</ReserveDetail>
+                            <Detailspan>{t('detailspan2')}</Detailspan>
                         </Reserve>
                         <Reserve>
-                            <ReserveDetail><DetailIcon className='icon-trash'></DetailIcon>Total</ReserveDetail>
+                            <ReserveDetail><DetailIcon className='icon-trash'></DetailIcon>{t('checkedOther4')}</ReserveDetail>
                             <Detailspan>$833</Detailspan>
                         </Reserve>
                         <Reserve>
-                            <ReserveDetail><DetailIcon className='icon-cash'></DetailIcon>Payment method</ReserveDetail>
-                            <Detailspan>Creadit card</Detailspan>
+                            <ReserveDetail><DetailIcon className='icon-cash'></DetailIcon>{t('reserveDetail4')}</ReserveDetail>
+                            <Detailspan>{t('detailspan4')}</Detailspan>
                         </Reserve>
                     </div>
                  </ReserveSection>

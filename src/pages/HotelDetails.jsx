@@ -5,10 +5,12 @@ import styled from 'styled-components'
 import {Navigate, useNavigate } from "react-router-dom";
 import { Container } from "../styled";
 import {useTranslation} from 'react-i18next'
-import HotelPhotos from '../components/HotelPhotos'
 import ExclusiveRooms from "../components/Exclusive";
 import PriceCard from '../components/PriceCard'
-
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
+import apiCalls from '../config/api';
 
 const DetailsSection = styled.section`
 background:${(props) => props.theme.hotelsbgcolor};
@@ -153,8 +155,15 @@ border-radius: 5px;
 padding: 5px 18px;
 margin-right: 17px;
 `
+const ImgHotel = styled.img`
+border-radius: 20px;
+width: 100%;
+margin-top: 40px;
+`
 const HotelDetails = ()=>{
  
+  const [hotelInfo, setHotelInfo] = useState({});
+  const [error, setError] = useState('');
     let History = useNavigate()
     const hundleSubmit = (el)=>{
         el.preventDefault()
@@ -168,21 +177,37 @@ const HotelDetails = ()=>{
         console.log(newRating);
       };
       const {t} = useTranslation();
+      
+      const { id } = useParams();
+      useEffect(() => {
+        console.log(id);
+        const getHotelDetail = async () => {
+          try {
+            const data = await apiCalls.getHotelDetail(id);
+            setHotelInfo(data);
+            console.log(data)
+          } catch (error) {
+              setError(error.message);
+          };
+        };
+        getHotelDetail();
+          
+      }, [id]);
+    
     return(
       <DetailsSection>
-
         <Container>
               <Pages>
                 <HomePage onClick={hundleSubmit}>{t('pageHome')} <RideIcon className='icon-rightside'/></HomePage>
                 <HotelListPage onClick={hundleSubmit2}>{t('pagelist')}<RideIcon className='icon-rightside'/></HotelListPage>
                 <HotelDetailsPage>{t('details')}</HotelDetailsPage>
             </Pages>
-            <CountryHotels>{t('countryHotels')} </CountryHotels>
+            <CountryHotels>{hotelInfo.name}</CountryHotels>
             <Row>
-            <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
-            <Location><LocationIcon className='icon-location'/>{t('countryName')}</Location>
+            <Reviews><Star src='/assets/star.png'/><Review>{hotelInfo.rating} <SpanRew>({hotelInfo.reviews} reviews)</SpanRew></Review></Reviews>
+            <Location><LocationIcon className='icon-location'/>{hotelInfo.location}</Location>
             </Row>
-            <HotelPhotos/>
+            <ImgHotel src={hotelInfo.photo}/>
             <Reytings>
               <Span1>5.0</Span1>
               <Span2>{t('span2')}</Span2>
@@ -202,11 +227,12 @@ const HotelDetails = ()=>{
             </Reytings>
             <MainDetail>
               <ExclusiveRooms/>
-              <PriceCard/>
+              <PriceCard />
             </MainDetail>
             <Subscribe/>
         </Container>
       </DetailsSection>
+      
     )
 }
 
