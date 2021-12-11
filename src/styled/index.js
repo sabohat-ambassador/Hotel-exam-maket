@@ -363,7 +363,8 @@ export const  LightTheme= {
    btnSliderBgColor: '#F4F5F6',
    btnSliderColor: '#B1B5C3',
    sliderBtnHoverbg: '#E6E8EC',
-   sliderBtnhoverColor: '#84878B'
+   sliderBtnhoverColor: '#84878B',
+   notFounColor: '#FAFAFB'
 }
 
 export const DarkTheme = {
@@ -482,6 +483,7 @@ export const DarkTheme = {
    btnSliderBgColor: '#222529',
    btnSliderColor: '#3B3E44',
    sliderBtnHoverbg: '#3B3E44',
-   sliderBtnhoverColor: '#E7ECF3'
+   sliderBtnhoverColor: '#E7ECF3',
+   notFounColor: '#32333b'
 };
 

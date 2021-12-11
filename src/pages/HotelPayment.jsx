@@ -55,7 +55,7 @@ const HotelPayment = ()=>{
       }
       const hundleSubmit3 = (el)=>{
         el.preventDefault()
-        History('/hoteldetails')
+        History('/hoteldetails/:id')
       }
     return (
         

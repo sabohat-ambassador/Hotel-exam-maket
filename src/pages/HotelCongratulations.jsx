@@ -1,10 +1,11 @@
 
-import {Navigate, useNavigate } from "react-router-dom";
+import {Link, Navigate, useNavigate } from "react-router-dom";
 import { Container } from "../styled"
 import {useTranslation} from 'react-i18next'
 import styled from "styled-components"
 import Subscribe from "../components/Subscribe";
 import Congratulation from '../components/Congratulation'
+import { BiLink } from "react-icons/bi";
 
 
 const HotelCongratulationBg = styled.div`
@@ -55,8 +56,10 @@ const HotelCongratilations = ()=>{
       }
       const hundleSubmit4 = (el)=>{
         el.preventDefault()
-        History('/hoteldetails')
+        History('/hotelpayment')
       }
+      
+      
     return(
         <HotelCongratulationBg>
 

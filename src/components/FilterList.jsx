@@ -1,6 +1,8 @@
 import styled, { ThemeContext } from 'styled-components';
 import { useState } from "react"
 import {useTranslation} from 'react-i18next'
+import { useRef } from "react"
+import React from 'react'
 
 const SearchLoc = styled.div`
 font-size: 18px;
@@ -112,12 +114,17 @@ color: ${(props) => props.theme.spanColor};
 const Filter = ()=>{
     const {t} = useTranslation()
     const [num, setNum] = useState()
+    
+    
+const handleCheck = (el)=>{
+    console.log(el.target.value)
+}
     return(
-        <div>
+        <form >
             <div>
                 <SearchLoc>{t('searchLoc')}</SearchLoc>
                 <SearchInput>
-                <Input type="search" placeholder={t('placeholderr')}/>
+                <Input  type="search" placeholder={t('placeholderr')}/>
                 <SearchIcon className='icon-search'></SearchIcon>
                 </SearchInput>
             </div>
@@ -125,28 +132,28 @@ const Filter = ()=>{
                 <DifferentFilters>
                     <PupularFilter>
                     <PopFil>{t('popFil1')}</PopFil>
-                    <Checkbox>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label1')}</Label>
+                    <Checkbox >
+                    <InputCheck  type="checkbox" id="check3" value='Hotels' onChange={handleCheck}  />
+                    <Label htmlFor='Hotels'>{t('label1')}</Label>
                     </Checkbox>
                     <Checkbox>
-                    <InputCheck type="checkbox" id=""/> 
-                    <Label htmlFor="">{t('label2')}</Label>
+                    <InputCheck type="checkbox" id="" value='Breakfast and Dinner' onChange={handleCheck}/> 
+                    <Label htmlFor="Breakfast and Dinner">{t('label2')}</Label>
                     </Checkbox>
                     <Checkbox>
-                    <InputCheck type="checkbox" id="check3"/> 
-                    <Label htmlFor='check3'>{t('label3')}</Label>
+                    <InputCheck type="checkbox" id="check3" value='Free Cancellationels' onChange={handleCheck}/> 
+                    <Label htmlFor='Free Cancellationels'>{t('label3')}</Label>
                     </Checkbox>
                     <Checkbox>
-                    <InputCheck type="checkbox" id="check3"/> 
-                    <Label htmlFor='check3'>{t('label4')}</Label>
+                    <InputCheck type="checkbox" id="check3" value='No prepayment' onChange={handleCheck}/> 
+                    <Label htmlFor='No prepayment'>{t('label4')}</Label>
                     </Checkbox>
                     <See>{t('see')}</See>
                     </PupularFilter>
                     <PupularFilter>
                     <PopFil>{t('popFil2')}</PopFil>
-                    <input type='range' onChange={(el)=>setNum(el.target.value)} className='check'/>
-            <InputNum type='number' value={num} />
+                    <input type='range' onChange={(el)=>setNum(el.target.value)} className='check' onChange={handleCheck}/>
+            <InputNum type='number' value={num}  />
             <Row><SpanRange>$50</SpanRange>  
             <SpanRange>$150</SpanRange></Row>
                     </PupularFilter>
@@ -154,22 +161,22 @@ const Filter = ()=>{
                     <PopFil>{t('popFil3')}</PopFil>
                     <Row>
                     <Checkboxx>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label1')}</Label>
+                    <InputCheck type="checkbox" id="check3" value='Hotels' onChange={handleCheck}/>
+                    <Label htmlFor='Hotels'>{t('label1')}</Label>
                     </Checkboxx>
                     <Span>108</Span>
                     </Row>
                    <Row>
                    <Checkboxx>
-                    <InputCheck type="checkbox" id=""/> 
-                    <Label htmlFor=""> {t('label5')} </Label>
+                    <InputCheck type="checkbox" id="" value='Apertments' onChange={handleCheck}/> 
+                    <Label htmlFor="Apertments"> {t('label5')} </Label>
                     </Checkboxx>
                     <Span>141</Span>
                    </Row>
                     <Row>
                     <Checkboxx>
-                    <InputCheck type="checkbox" id="check3"/> 
-                    <Label htmlFor='check3'>{t('label6')}</Label>
+                    <InputCheck type="checkbox" id="check3" value='Resort' onChange={handleCheck}/> 
+                    <Label htmlFor='Resort'>{t('label6')}</Label>
                     </Checkboxx>
                     <Span>108</Span>
                     </Row>
@@ -179,67 +186,67 @@ const Filter = ()=>{
                     <PupularFilter>
                     <PopFil>{t('popFil4')}</PopFil>
                     <Checkbox>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label7')}</Label>
+                    <InputCheck type="checkbox" id="Less than $75" value='Less than $75' onChange={handleCheck}/>
+                    <Label htmlFor='Less than $75'>{t('label7')}</Label>
                     </Checkbox>
                     <Checkbox>
-                    <InputCheck type="checkbox" id=""/> 
-                    <Label htmlFor="">{t('label8')} </Label>
+                    <InputCheck type="checkbox" id="$75 to 125" value='$75 to 125' onChange={handleCheck}/> 
+                    <Label htmlFor="$75 to 125">{t('label8')} </Label>
                     </Checkbox>
                     <Checkbox>
-                    <InputCheck type="checkbox" id="check3"/> 
-                    <Label htmlFor='check3'>{t('label9')}</Label>
+                    <InputCheck type="checkbox" id="$125 to 200" value='$125 to 200' onChange={handleCheck}/> 
+                    <Label htmlFor='$125 to 200'>{t('label9')}</Label>
                     </Checkbox>
                     <Checkbox>
-                    <InputCheck type="checkbox" id="check3"/> 
-                    <Label htmlFor='check3'>{t('label10')}</Label>
+                    <InputCheck type="checkbox" id="$200 to $300" value='$200 to $300' onChange={handleCheck}/> 
+                    <Label htmlFor='$200 to $300'>{t('label10')}</Label>
                     </Checkbox>
                     <Checkbox>
-                    <InputCheck type="checkbox" id="check3"/> 
-                    <Label htmlFor='check3'>{t('label11')}</Label>
+                    <InputCheck type="checkbox" id="Greater than $300" value='Greater than $300' onChange={handleCheck}/> 
+                    <Label htmlFor='Greater than $300'>{t('label11')}</Label>
                     </Checkbox>
                     </PupularFilter>
                     <PupularFilter>
                     <PopFil>{t('popFil5')} </PopFil>
                     <Row>
                     <Checkboxx>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label12')}</Label>
+                    <InputCheck type="checkbox" id="Outdoor Sports" value='Outdoor Sports'/>
+                    <Label htmlFor='Outdoor Sports'>{t('label12')}</Label>
                  </Checkboxx>
                  <Span>108</Span>
                     </Row>
                     <Row>
                     <Checkboxx>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label13')} </Label>
+                    <InputCheck type="checkbox" id="Berbeque" value='Berbeque'/>
+                    <Label htmlFor='Berbeque'>{t('label13')} </Label>
                  </Checkboxx>
                  <Span>141</Span>
                     </Row>
                     <Row>
                     <Checkboxx>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label14')}</Label>
+                    <InputCheck type="checkbox" id="Living Room"  value='Living Room'/>
+                    <Label htmlFor='Living Room'>{t('label14')}</Label>
                  </Checkboxx>
                  <Span>108</Span>
                     </Row>
                     <Row>
                     <Checkboxx>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label15')}</Label>
+                    <InputCheck type="checkbox" id="Room Service"  value='Room Service'/>
+                    <Label htmlFor='Room Service'>{t('label15')}</Label>
                  </Checkboxx>
                  <Span>108</Span>
                     </Row>
                     <Row>
                     <Checkboxx>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label16')}</Label>
+                    <InputCheck type="checkbox" id="Swimming Pool"  value='Swimming Pool'/>
+                    <Label htmlFor='Swimming Pool'>{t('label16')}</Label>
                  </Checkboxx>
                  <Span>141</Span>
                     </Row>
                     <Row>
                     <Checkboxx>
-                    <InputCheck type="checkbox" id="check3"/>
-                    <Label htmlFor=''>{t('label17')} </Label>
+                    <InputCheck type="checkbox" id="Spa"  value='Spa'/>
+                    <Label htmlFor='Spa'>{t('label17')} </Label>
                  </Checkboxx>
                  <Span>108</Span>
                     </Row>
@@ -248,7 +255,7 @@ const Filter = ()=>{
                     
                 </DifferentFilters>
             </div>
-        </div>
+        </form>
     )
 }
 
