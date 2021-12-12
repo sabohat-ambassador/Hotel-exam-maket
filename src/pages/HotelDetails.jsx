@@ -195,8 +195,9 @@ const HotelDetails = ()=>{
       }, [id]);
     
     return(
+     
       <DetailsSection>
-        <Container>
+        {error? error :     <Container>
               <Pages>
                 <HomePage onClick={hundleSubmit}>{t('pageHome')} <RideIcon className='icon-rightside'/></HomePage>
                 <HotelListPage onClick={hundleSubmit2}>{t('pagelist')}<RideIcon className='icon-rightside'/></HotelListPage>
@@ -230,7 +231,8 @@ const HotelDetails = ()=>{
               <PriceCard />
             </MainDetail>
             <Subscribe/>
-        </Container>
+        </Container>}
+    
       </DetailsSection>
       
     )

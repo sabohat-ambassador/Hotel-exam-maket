@@ -3,7 +3,6 @@ import {Link, Navigate, useNavigate } from "react-router-dom";
 import {useTranslation} from 'react-i18next'
 
 
-
 const Card = styled.div`
 border: 1px solid ${(props) => props.theme.dropcontenborder};
 background:  ${(props) => props.theme.dropcontentbgColor};
@@ -198,8 +197,8 @@ font-weight: 400;
 line-height: 21px;
 color: #777E90;
 `
-const PriceCard = (props)=>{
-
+const PriceCard = ()=>{
+ 
       const {t} = useTranslation();
      
     return(

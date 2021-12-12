@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import Subscribe from '../components/Subscribe'
 import PaymentCard from '../components/PaymentCard'
 
-
 const PaymentBg = styled.div`
 background:  ${(props) => props.theme.subsccribeInHotellBg};
 `
@@ -57,11 +56,11 @@ const HotelPayment = ()=>{
         el.preventDefault()
         History('/hoteldetails/:id')
       }
+     
     return (
         
          <PaymentBg>
-       <Container>
-
+            <Container>
             <Pages>
                 <Backpage onClick={hundleSubmit}>{t('pageHome')} <RideIcon className='icon-rightside'/></Backpage>
                 <Backpage onClick={hundleSubmit2}>{t('pagelist')} <RideIcon className='icon-rightside'/></Backpage>
@@ -70,10 +69,11 @@ const HotelPayment = ()=>{
             </Pages>
             <Paymentsections>
               <ConfirmBook/>
-              <PaymentCard/>
+              <PaymentCard />
             </Paymentsections>
             <Subscribe/>
        </Container>
+    
          </PaymentBg>
     )
 }
