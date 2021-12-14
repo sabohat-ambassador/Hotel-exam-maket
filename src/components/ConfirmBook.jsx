@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import {useTranslation} from 'react-i18next'
-import {Navigate, useNavigate } from "react-router-dom";
+import {Link, Navigate, useNavigate } from "react-router-dom";
 
 const ConfirmSection = styled.section`
 max-width: 60%;
@@ -205,6 +205,7 @@ left: 30px;
 
 const Chexbox= styled.div`
 margin-top: 18px;
+margin-bottom: 34px;
 `
 const ChecLabel = styled.label`
 font-family: Roboto;
@@ -214,7 +215,7 @@ line-height: 27px;
 color: ${(props) => props.theme.textsColor};
 margin-left: 11px;
 `
-const ConfirmBtn = styled.button`
+const ConfirmBtn = styled(Link)`
 font-family: Roboto;
 font-size: 18px;
 font-weight: 500;
@@ -224,10 +225,9 @@ background: #3B71FE;
 padding: 11px 20px;
 border-radius: 36px;
 border: none;
-margin-top: 34px; 
-
+\
 `
-const ConfirmBook = ()=>{
+const ConfirmBook = ({props})=>{
     const {t} = useTranslation();
     let History = useNavigate()
     const hundleSubmit = (el)=>{
@@ -303,7 +303,7 @@ const ConfirmBook = ()=>{
                     <input type="checkbox" id="check3"/>
                     <ChecLabel htmlFor=''>{t('checLabel')}</ChecLabel>
         </Chexbox>
-                    <ConfirmBtn onClick={hundleSubmit}>{t('ConfirmBtn')}</ConfirmBtn>
+                    <ConfirmBtn to={`/hotelcongratulation/${props}`}>{t('ConfirmBtn')}</ConfirmBtn>
         </ConfirmSection>
     )
 }

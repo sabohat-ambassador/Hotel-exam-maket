@@ -118,14 +118,14 @@ line-height: 21px;
 color: #B1B5C3;
 margin-top: 30px;
 `
-const PaymentCard  = ()=>{
+const PaymentCard  = ({props})=>{
     const {t} = useTranslation();
    
     return(
         <CardInfo>
-            <SwisHotels>{t('swisHotels')}</SwisHotels>
+            <SwisHotels>{props.name}</SwisHotels>
             <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
-            <SwisImg src='/assets/daniel.jpg'/>
+            <SwisImg src={props.photo}/>
             <Roomdiv>
             <Rooms>{t('rooms')}</Rooms>
              </Roomdiv>

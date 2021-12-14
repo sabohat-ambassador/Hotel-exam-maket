@@ -197,10 +197,11 @@ font-weight: 400;
 line-height: 21px;
 color: #777E90;
 `
-const PriceCard = ()=>{
+const PriceCard = ({props})=>{
  
       const {t} = useTranslation();
      
+
     return(
         <Card>
             <Prices>
@@ -276,7 +277,7 @@ const PriceCard = ()=>{
                 <Span3>$300</Span3>
             </Row>
             <BookNow>
-            <BookBtn  to={`/hotelpayment`}>{t('bookNow')}</BookBtn>
+            <BookBtn  to={`/hotelpayment/${props}`}>{t('bookNow')}</BookBtn>
             <Charged>{t('charged')}</Charged>
             </BookNow>
         </Card>

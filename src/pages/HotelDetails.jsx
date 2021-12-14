@@ -228,7 +228,7 @@ const HotelDetails = ()=>{
             </Reytings>
             <MainDetail>
               <ExclusiveRooms/>
-              <PriceCard />
+              <PriceCard props={hotelInfo.id}/>
             </MainDetail>
             <Subscribe/>
         </Container>}

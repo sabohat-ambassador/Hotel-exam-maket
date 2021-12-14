@@ -123,7 +123,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 `
-const Congratulation = ()=>{
+const Congratulation = ({props})=>{
     const {t} = useTranslation();
     return(
         <div>
@@ -132,7 +132,7 @@ const Congratulation = ()=>{
             <YourTrip>{t('yourTrip')}</YourTrip>
              </div>
              <div>
-                 <H3>{t('swisHotels')} </H3>
+                 <H3>{props.name} </H3>
                  <Other>
                  <Reviews><Star src='/assets/star.png'/><Review>4.8 <SpanRew>(122 {t('reviews')})</SpanRew></Review></Reviews>
                  <Baggoge>{t('baggoge')}</Baggoge>
@@ -172,7 +172,7 @@ const Congratulation = ()=>{
                     </div>
                  </ReserveSection>
                  </div>
-                 <DanielImg src="/assets/daniel.jpg" alt="" />
+                 <DanielImg src={props.photo} alt="" />
              </Bookedd>
         </div>
     )

@@ -6,7 +6,10 @@ import styled from "styled-components"
 import Subscribe from "../components/Subscribe";
 import Congratulation from '../components/Congratulation'
 import { BiLink } from "react-icons/bi";
-
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
+import apiCalls from '../config/api';
 
 const HotelCongratulationBg = styled.div`
 background:  ${(props) => props.theme.subsccribeInHotellBg};
@@ -59,7 +62,23 @@ const HotelCongratilations = ()=>{
         History('/hotelpayment')
       }
       
-      
+      const [hotelCong, setHotelCong] = useState({});
+      const [error, setError] = useState('');
+      const { id } = useParams();
+      useEffect(() => {
+        console.log(id);
+        const getHotelDetail = async () => {
+          try {
+            const data = await apiCalls.getHotelDetail(id);
+            setHotelCong(data);
+            console.log(data)
+          } catch (error) {
+              setError(error.message);
+          };
+        };
+        getHotelDetail();
+          
+      }, [id]);
     return(
         <HotelCongratulationBg>
 
@@ -71,7 +90,7 @@ const HotelCongratilations = ()=>{
         <Backpage onClick={hundleSubmit4}>{t('paymnet')}<RideIcon className='icon-rightside'/>  </Backpage>
         <Congratulationpage>Congratulations</Congratulationpage>
     </Pages>
-<Congratulation/>
+<Congratulation props={hotelCong}/>
 <Subscribe/>
         </Container>
         </HotelCongratulationBg>

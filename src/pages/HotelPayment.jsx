@@ -5,6 +5,10 @@ import ConfirmBook from "../components/ConfirmBook";
 import { useTranslation } from 'react-i18next';
 import Subscribe from '../components/Subscribe'
 import PaymentCard from '../components/PaymentCard'
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
+import apiCalls from '../config/api';
 
 const PaymentBg = styled.div`
 background:  ${(props) => props.theme.subsccribeInHotellBg};
@@ -56,7 +60,24 @@ const HotelPayment = ()=>{
         el.preventDefault()
         History('/hoteldetails/:id')
       }
-     
+      const [hotelpayment, setHotelPayment] = useState({});
+      const [error, setError] = useState('');
+      const { id } = useParams();
+      useEffect(() => {
+        console.log(id);
+        const getHotelDetail = async () => {
+          try {
+            const data = await apiCalls.getHotelDetail(id);
+            setHotelPayment(data);
+            console.log(data)
+          } catch (error) {
+              setError(error.message);
+          };
+        };
+        getHotelDetail();
+          
+      }, [id]);
+    
     return (
         
          <PaymentBg>
@@ -68,8 +89,8 @@ const HotelPayment = ()=>{
                 <Payment>{t('paymnet')} </Payment>
             </Pages>
             <Paymentsections>
-              <ConfirmBook/>
-              <PaymentCard />
+              <ConfirmBook props={hotelpayment.id}/>
+              <PaymentCard props={hotelpayment}/>
             </Paymentsections>
             <Subscribe/>
        </Container>
